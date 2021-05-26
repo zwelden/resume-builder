@@ -1,25 +1,19 @@
 <template>
     <div class="resume-experience-detail">
         <div class="company-name">
-            {{ companyName }}
+            {{ data.company }}
         </div>
         <div class="position-title">
-            {{ positionTitle }}
+            {{ data.jobTitle }}
         </div>
         <div class="experience-subtitle">
-            {{ start }} - {{ end }}, {{ location }}
+            {{ data.start }} - {{ data.end }}, {{ data.location }}
         </div>
         
-        <div class="experience-bullets">
+        <div v-if="data.bullets.length > 0" class="experience-bullets">
             <ul>
-                <li>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Suspendisse a scelerisque lacus.
-                </li>
-                <li>
-                    Donec velit mauris, tristique sit amet tortor ut, lacinia 
-                    convallis ipsum. Nam vitae sem id purus malesuada 
-                    scelerisque.
+                <li v-for="bullet in data.bullets" :key="bullet.order">
+                    {{ bullet.text }}
                 </li>
             </ul>
         </div>
@@ -29,7 +23,9 @@
 <script>
 export default {
     name: 'ExperienceDetail',
-    props: ['companyName', 'start', 'end', 'location', 'positionTitle']
+    props: {
+        data: Object
+    }
 }
 </script>
 

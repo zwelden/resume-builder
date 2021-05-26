@@ -1,16 +1,20 @@
 <template>
     <div class="resume-contact-info">
-        <div>Tulsa, OK</div>
-        <div>918-918-9180</div>
-        <div><a href="#">somename@randomemail.com</a></div>
-        <div><a href="#">zachwelden.com</a></div>
-        <div><a href="#">github.com/zwelden</a></div>
+        <div v-if="data.location">{{ data.location }}</div>
+        <div v-if="data.phone">{{ data.phone }}</div>
+        <div v-if="data.email"><a href="#">{{ data.email }}</a></div>
+        <div v-if="data.website"><a href="#">{{ data.website }}</a></div>
+        <div v-if="data.linkedin"><a href="#">{{ data.linkedin }}</a></div>
+        <div v-if="data.github"><a href="#">{{ data.github }}</a></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Contact'
+    name: 'Contact',
+    props: {
+        data: Object
+    }
 }
 </script>
 

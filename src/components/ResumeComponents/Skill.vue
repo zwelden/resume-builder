@@ -27,6 +27,7 @@ export default {
     line-height: 1.1;
     letter-spacing: .5px;
 }
+
 .skill-years {
     font-style: italic;
     font-size: .85rem;

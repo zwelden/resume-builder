@@ -1,17 +1,17 @@
 <template>
     <div class="resume-education">
         <div class="education-title">
-            {{ title }}
+            {{ data.name }}
         </div>
         <div class="education-courses">
-            <div v-for="course in courses" :key="course" class="education-course">
-                {{ course }}
+            <div v-for="degree in data.degrees" :key="degree.order" class="education-course">
+                {{ degree.name }}
             </div>
         </div>
 
         <div class="education-location-duration">
-            <div>{{ duration }}</div>
-            <div>{{ location }}</div>
+            <div>{{ data.start }} - {{ data.end }}</div>
+            <div>{{ data.location }}</div>
         </div>
         
     </div>
@@ -21,10 +21,7 @@
 export default {
     name: 'Education',
     props: {
-        title: String,
-        courses: Array,
-        duration: String,
-        location: String
+        data: Object
     }
 }
 </script>

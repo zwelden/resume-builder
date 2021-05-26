@@ -1,17 +1,18 @@
 <template>
     <div class="resume-title">
         <div class="resume-person-name">
-            Zach Welden
+            {{ applicantName }}
         </div>
         <div class="resume-position-title">
-            Software Engineer
+            {{ jobTitle }}
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Title'
+    name: 'Title',
+    props: ['applicantName', 'jobTitle']
 }
 </script>
 

@@ -2,57 +2,45 @@
     <div class="resume-page">
         <div class="resume-page-section resume-header">
             <div class="resume-col col-2">
-                <Title />
+                <Title :applicant-name="resumeContent.applicantName" :job-title="resumeContent.jobTitle"></Title>
             </div>
-            <div class="resume-col col-1">
-                <Contact />
+            <div v-if="resumeContent.contactInfo" class="resume-col col-1">
+                <Contact :data="resumeContent.contactInfo"></Contact>
             </div>
         </div>
 
         <div class="resume-page-section resume-content">
             <div class="resume-col col-2">
 
-                <div class="resume-detail-section">
+                <div v-if="resumeContent.experience.length > 0" class="resume-detail-section">
                     <SectionTitle title-name="Related Experience"></SectionTitle>
-
-                    <ExperienceDetail company-name="Tenstreet LLC" start="June 2018" end="Present" location="Tulsa, OK" position-title="Software Engineer"></ExperienceDetail>
-                    <ExperienceDetail company-name="Brothers & Company" start="July 2017" end="May 2018" location="Tulsa, OK" position-title="Front End Developer"></ExperienceDetail>
-                    <!-- <ExperienceDetail company-name="DePaul University" start="2011" end="2013" location="Chicago, IL" position-title="Help Desk Analyst"></ExperienceDetail> -->
-                    <ExperienceDetail company-name="U.S. Air Force" start="2004" end="2010" location="UK, S. Korea, Italy, S.E. Asia" position-title="SSgt. - Network Management Technician"></ExperienceDetail>
+                    
+                    <ExperienceDetail v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></ExperienceDetail>
                 </div>
                 
-                <div class="resume-detail-section">
+                <div v-if="resumeContent.projects.length > 0" class="resume-detail-section">
                     <SectionTitle title-name="Projects"></SectionTitle>
                 </div>
                 
             </div>
             <div class="resume-col col-1">
-                <div class="resume-detail-section">
+
+                <div v-if="resumeContent.skills.length > 0" class="resume-detail-section">
                     <SectionTitle title-name="Skills"></SectionTitle>
                     
-                    <Skill skill-name="Linux" skill-years="10"></Skill>
-                    <Skill skill-name="Javascript" skill-years="5"></Skill>
-                    <Skill skill-name="HTML/CSS" skill-years="5"></Skill>
-                    <Skill skill-name="Git" skill-years="5"></Skill>
-                    <Skill skill-name="Php" skill-years="4"></Skill>
-                    <Skill skill-name="SQL" skill-years="4"></Skill>
-                    <Skill skill-name="Python" skill-years="3"></Skill>
-                    <Skill skill-name="Vue" skill-years="2"></Skill>
+                    <Skill v-for="skill in resumeContent.skills" :key="skill.order" :skill-name="skill.name" :skill-years="skill.years"></Skill>
                 </div>
 
-                <div class="resume-detail-section">
+                <div v-if="resumeContent.education.length > 0" class="resume-detail-section">
                     <SectionTitle title-name="Education"></SectionTitle>
-                    <Education title="Beijing Language and Culture University" :courses="['Chinese Language Study']" duration="2014 - 2015" location="Beijing, China"></Education>
-                    <Education title="DePaul University" :courses="['BA in Economics (Honors)', 'BA in Chinese Studies']" duration="2011 - 2014" location="Chicago, IL"></Education>
+
+                    <Education v-for="education in resumeContent.education" :key="education.order" :data="education"></Education>
                 </div>
 
-                <div class="resume-detail-section">
+                <div v-if="resumeContent.interests.length > 0" class="resume-detail-section">
                     <SectionTitle title-name="Interests"></SectionTitle>
 
-                    <Interest name="Snowboarding"></Interest>
-                    <Interest name="Running (5k, 10k)"></Interest>
-                    <Interest name="Reading"></Interest>
-                    <Interest name="Traveling"></Interest>
+                    <Interest v-for="interest in resumeContent.interests" :key="interest.order" :name="interest.name"></Interest>
                 </div>
             </div>
         </div>
@@ -79,6 +67,11 @@ export default {
         Skill,
         Education,
         Interest
+    },
+    computed: {
+        resumeContent() {
+            return this.$store.state.resumeContent;
+        }
     }
 }
 </script>
