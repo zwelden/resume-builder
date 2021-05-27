@@ -65,7 +65,30 @@ export const store = new Vuex.Store({
                 }
             ],
             projects: []
+        },
+        activeDisplay: {
+            resume: true,
+            edit: false,
+            config: false
         }
     },
-    mutations: {}
+    mutations: {
+        showConfig(state) {
+            state.activeDisplay.resume = false;
+            state.activeDisplay.edit = false;
+            state.activeDisplay.config = true;
+        },
+
+        showEdit(state) {
+            state.activeDisplay.resume = false;
+            state.activeDisplay.config = false;
+            state.activeDisplay.edit = true;
+        },
+
+        showResume(state) {
+            state.activeDisplay.config = false;
+            state.activeDisplay.edit = false;
+            state.activeDisplay.resume = true;
+        }
+    }
 })

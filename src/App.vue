@@ -1,16 +1,37 @@
 <template>
   <div id="app">
-    <ResumePage />
+    <ResumePage v-if="resumeActive"/>
+    <SideMenu />
+    <EditResumeContentForm v-if="editActive"/>
   </div>
 </template>
 
 <script>
 import ResumePage from './components/ResumePage.vue'
+import SideMenu from './components/SideMenu/SideMenu'
+import EditResumeContentForm from './components/EditResumeContentForm/EditResumeContentForm'
 
 export default {
   name: 'App',
+
   components: {
-    ResumePage
+    ResumePage,
+    SideMenu,
+    EditResumeContentForm
+  },
+
+  computed: {
+    resumeActive() {
+      return this.$store.state.activeDisplay.resume;
+    },
+
+    configActive() {
+      return this.$store.state.activeDisplay.config;
+    },
+
+    editActive() {
+      return this.$store.state.activeDisplay.edit;
+    }
   }
 }
 </script>
@@ -32,6 +53,7 @@ body div {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
 
   padding-top: 2rem;
   padding-bottom: 2rem;
