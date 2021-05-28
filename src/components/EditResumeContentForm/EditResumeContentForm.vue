@@ -4,61 +4,41 @@
             <button class="btn" @click="showResume">&lt;&lt; Back to Resumé</button>
         </div>
 
-        <div class="selection-wrapper">
-            <select class="resume-section-select" v-model="selectedEdit" @change="showEditSection">
-                <option value="">Choose A Section To Edit</option>
-                <option value="header">Header</option>
-                <option value="contact">Contact</option>
-                <option value="experience">Experience</option>
-                <option value="education">Education</option>
-                <option value="skills">Skills</option>
-                <option value="projects">Projects</option>
-                <option value="interests">Interests</option>
-            </select>
-        </div>
-
         <div class="edit-sections">
-            <HeaderForm v-if="activeSections.header" />
+
+            <FormSection section-title="Resume Header">
+                <HeaderForm></HeaderForm>
+            </FormSection>
+
+            <FormSection section-title="Experience">
+                <ExperienceForm></ExperienceForm>
+            </FormSection>
+
+            <FormSection section-title="Education">
+                <EducationForm></EducationForm>
+            </FormSection>
+            
         </div>
     </div>
 </template>
 
 <script>
-import HeaderForm from './FormParts/HeaderForm'
+import FormSection from './FormParts/FormSection';
+import HeaderForm from './FormParts/HeaderForm';
+import ExperienceForm from './FormParts/ExperienceForm';
+import EducationForm from './FormParts/EducationForm';
 
 export default {
     name: 'EditResumeContentForm',
     components: {
-        HeaderForm
-    },
-    data() {
-        return {
-            selectedEdit: "",
-            activeSections: {
-                header: false,
-                contact: false,
-                experience: false,
-                education: false,
-                skills: false,
-                projects: false,
-                interests: false
-            }
-        }
+        FormSection,
+        HeaderForm,
+        ExperienceForm,
+        EducationForm
     },
     methods: {
         showResume() {
             this.$store.commit('showResume');
-        },
-
-        showEditSection() {
-
-            for (let section in this.activeSections) {
-                this.activeSections[section] = false;
-            }
-
-            if (Object.prototype.hasOwnProperty.call(this.activeSections, this.selectedEdit)) {
-                this.activeSections[this.selectedEdit] = true;
-            }
         }
     }
 }
@@ -67,12 +47,13 @@ export default {
 <style scoped>
 .edit-resume-content-form {
     background: #fff;
-    width: 8.5in;
+    width: 7.5in;
     padding: .25in;
     box-shadow: 0 5px 10px -2px #9e9e9e;
     position: relative;
     left: 50%;
     transform: translateX(-50%) scale(1);
+    text-align: left;
 }
 
 .return-to-resume-wrapper {
@@ -106,4 +87,5 @@ export default {
     border-bottom: 2px solid #2bc8cb;
     margin-bottom: 1rem;
 }
+
 </style>

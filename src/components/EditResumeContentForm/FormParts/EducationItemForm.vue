@@ -1,0 +1,39 @@
+<template>
+    <div class="education-item-form">
+        <div>
+            <label for="">School Name</label>
+            <input type="text" id="school-name">
+        </div>
+        <div>
+            <label for="">Location</label>
+            <input type="text" id="school-location">
+        </div>
+        <div>
+            <label for="">Start</label>
+            <input type="text" id="start-date">
+        </div>
+        <div>
+            <label for="">End</label>
+            <input type="text" id="end-date">
+        </div>
+        <div class="degrees-container">
+            <div>
+                <label for="">Degree Name</label>
+                <input type="text" id="degree-name">
+            </div>
+            <div>
+                <button>Add Degree</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'EducationItemForm'
+}
+</script>
+
+<style scoped>
+
+</style>

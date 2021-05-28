@@ -43,7 +43,7 @@ html, body {
   margin: 0;
 }
 
-body div {
+body, div, span, p, a, button, ul, li, input, select, textarea {
   box-sizing: border-box;
 }
 
@@ -65,6 +65,27 @@ a {
 
 a:visited {
   color: #2b79cb; 
+}
+
+label {
+  display: block;
+  color: #8b8b8c;
+  margin-bottom: 2px;
+  line-height: 1.1;
+  font-size: .85rem;
+}
+
+textarea,
+select,
+input {
+  display: block;
+  width: 100%;
+  padding: .25rem .5rem;
+  font-size: 1rem;
+  border: 1px solid #e7e7e8;
+  border-radius: 4px;
+  background: #f8f9fb;
+  margin-bottom: 1rem;
 }
 
 @media print {
