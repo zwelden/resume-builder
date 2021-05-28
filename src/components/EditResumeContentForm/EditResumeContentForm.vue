@@ -1,7 +1,7 @@
 <template>
     <div class="edit-resume-content-form">
         <div class="return-to-resume-wrapper">
-            <button class="btn" @click="showResume">&lt;&lt; Back to Resumé</button>
+            <button class="btn btn-primary" @click="showResume">&lt;&lt; Back to Resumé</button>
         </div>
 
         <div class="edit-sections">
@@ -83,21 +83,6 @@ export default {
 .return-to-resume-wrapper {
     text-align: left;
     margin-bottom: 1rem;
-}
-
-.btn {
-    border: none;
-    padding: .5rem 1rem;
-    border-radius: .25rem;
-    background: #2bc8cb;
-    background: linear-gradient(180deg, rgba(59,218,200,1) 0%, rgba(43,200,203,1) 90%);
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background: #27b5b8;
 }
 
 .resume-section-select {

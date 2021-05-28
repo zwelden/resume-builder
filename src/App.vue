@@ -88,6 +88,66 @@ input {
   margin-bottom: .75rem;
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: .5rem 1rem;
+  border-radius: .25rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn-sm {
+  padding: .25rem .5rem;
+  font-size: .85rem;
+}
+
+.btn-primary {
+  background: #2bc8cb;
+  background: linear-gradient(180deg, rgba(59,218,200,1) 0%, rgba(43,200,203,1) 90%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #27b5b8;
+}
+
+.btn-danger {
+  background: rgba(203,43,43,1);
+  background: linear-gradient(180deg, rgba(218,59,117,1) 0%, rgba(203,43,43,1) 90%);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: rgb(193, 41, 41);
+  color: #fff;
+}
+
+.btn-danger-outline {
+  padding: calc(.25rem - 1px) calc(.5rem - 1px);
+  border: 1px solid rgba(203,43,43,.75);
+  color: rgba(203,43,43,1);
+  background: rgba(255, 255, 255, .3);
+}
+
+.btn-danger-outline:hover {
+  background: rgb(193, 41, 41);
+  color: #fff;
+}
+
+.btn-alt {
+  background: rgba(43,120,203,1));
+  background: linear-gradient(180deg, rgba(59,149,218,1) 0%, rgba(43,120,203,1) 90%);
+  color: #fff;
+}
+
+.btn-alt:hover {
+  background: rgb(39, 109, 184);
+}
+
 @media print {
   #app {
     padding-top: 0;

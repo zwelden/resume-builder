@@ -20,7 +20,6 @@
             </div>
         </div>
         
-
         <div>
             <label for="">Bullets</label>
             <textarea name="" id="bullet-info-1"  rows="2"></textarea>
