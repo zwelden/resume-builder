@@ -8,14 +8,18 @@
             <label for="">Location</label>
             <input type="text" id="school-location">
         </div>
-        <div>
-            <label for="">Start</label>
-            <input type="text" id="start-date">
+
+        <div class="start-end-containers">
+            <div class="start-wrapper">
+                <label for="">Start</label>
+                <input type="text" id="start-date">
+            </div>
+            <div class="end-wrapper">
+                <label for="">End</label>
+                <input type="text" id="end-date" placeholder="Present">
+            </div>
         </div>
-        <div>
-            <label for="">End</label>
-            <input type="text" id="end-date">
-        </div>
+
         <div class="degrees-container">
             <div>
                 <label for="">Degree Name</label>
@@ -35,5 +39,13 @@ export default {
 </script>
 
 <style scoped>
+.start-end-containers {
+    display: flex;
+    justify-content: space-between;
+}
 
+.start-wrapper,
+.end-wrapper {
+    width: 48%;
+}
 </style>

@@ -8,14 +8,18 @@
             <label for="">Job Title</label>
             <input type="text" id="job-title">
         </div>
-        <div>
-            <label for="">Start</label>
-            <input type="text" id="job-start">
+
+        <div class="start-end-containers">
+            <div class="start-wrapper">
+                <label for="">Start</label>
+                <input type="text" id="job-start">
+            </div>
+            <div class="end-wrapper">
+                <label for="">End</label>
+                <input type="text" id="job-end" placeholder="Present">
+            </div>
         </div>
-        <div>
-            <label for="">End</label>
-            <input type="text" id="job-end" placeholder="Present">
-        </div>
+        
 
         <div>
             <label for="">Bullets</label>
@@ -34,5 +38,13 @@ export default {
 </script>
 
 <style scoped>
+.start-end-containers {
+    display: flex;
+    justify-content: space-between;
+}
 
+.start-wrapper,
+.end-wrapper {
+    width: 48%;
+}
 </style>

@@ -5,7 +5,7 @@
             <input type="text" id="skill">
         </div>
         <div>
-            <label for="">Skill Years</label>
+            <label for="">Number of Years</label>
             <input type="text" id="years">
         </div>
     </div>
