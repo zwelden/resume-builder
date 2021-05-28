@@ -29,6 +29,11 @@
                 <button>Add Degree</button>
             </div>
         </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-sm btn-secondary">Cancel</button>
+            <button class="btn btn-sm btn-primary">Save</button>
+        </div>
     </div>
 </template>
 

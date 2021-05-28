@@ -98,11 +98,22 @@ input {
   font-weight: 600;
   cursor: pointer;
   line-height: 1;
+  margin-right: .25rem;
+}
+
+.btn:last-child {
+  margin-right: 0;
 }
 
 .btn-sm {
   padding: .25rem .5rem;
   font-size: .85rem;
+  font-weight: 600;
+}
+
+.btn-md {
+  padding: .35rem .7rem;
+  font-size: .95rem;
 }
 
 .btn-primary {
@@ -113,6 +124,16 @@ input {
 
 .btn-primary:hover {
   background: #27b5b8;
+}
+
+.btn-secondary {
+  background: rgba(190,190,190,1);
+  background: linear-gradient(180deg, rgba(225,225,225,1) 0%, rgba(210,210,210,1) 90%);
+  color: #5a5a60;
+}
+
+.btn-secondary:hover {
+  background: #bababa;
 }
 
 .btn-danger {
@@ -139,8 +160,14 @@ input {
 }
 
 .btn-alt {
-  background: rgba(43,120,203,1));
-  background: linear-gradient(180deg, rgba(59,149,218,1) 0%, rgba(43,120,203,1) 90%);
+  /* background: rgba(43,120,203,1));
+  background: linear-gradient(180deg, rgba(59,149,218,1) 0%, rgba(43,120,203,1) 90%); */
+
+  background: rgb(79,170,240);
+  background: linear-gradient(180deg, rgba(79,170,240,1) 0%, rgba(57,139,227,1) 90%);
+
+  background: rgb(79,186,240);
+  background: linear-gradient(180deg, rgba(79,186,240,1) 0%, rgba(57,159,227,1) 90%);
   color: #fff;
 }
 

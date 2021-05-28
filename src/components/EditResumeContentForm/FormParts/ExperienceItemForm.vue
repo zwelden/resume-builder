@@ -20,12 +20,18 @@
             </div>
         </div>
         
-        <div>
-            <label for="">Bullets</label>
+        <div class="bullets-wrapper">
+            <h5>Bullets</h5>
+            <label for="">Bullet</label>
             <textarea name="" id="bullet-info-1"  rows="2"></textarea>
-            <div>
-                <button>Add new bullet</button>
+            <div class="action-buttons">
+                <button class="btn btn-sm btn-alt">Add new bullet</button>
             </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-md btn-secondary">Cancel</button>
+            <button class="btn btn-md btn-primary">Save</button>
         </div>
     </div>
 </template>
@@ -37,6 +43,11 @@ export default {
 </script>
 
 <style scoped>
+h5 {
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
 .start-end-containers {
     display: flex;
     justify-content: space-between;
@@ -45,5 +56,13 @@ export default {
 .start-wrapper,
 .end-wrapper {
     width: 48%;
+}
+
+.bullets-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+    text-align: right;
 }
 </style>

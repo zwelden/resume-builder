@@ -41,8 +41,7 @@ export default {
 
 <style scoped>
 .form-item-card {
-    display: flex;
-    justify-content: space-between;
+    position: relative;
     border: 1px solid #e7e7e8;
     border-radius: 4px;
     background: #f8f9fb;
@@ -52,12 +51,19 @@ export default {
 
 .card-content {
     width: 100%;
-    flex-shrink: 1;
 }
 
 .card-actions {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
     text-align: right;
     width: 200px;
+    display: none;
+}
+
+.form-item-card:hover .card-actions {
+    display: block;
 }
 
 .action-button {
