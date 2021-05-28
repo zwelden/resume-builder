@@ -10,6 +10,10 @@
                 <HeaderForm></HeaderForm>
             </FormSection>
 
+            <FormSection section-title="Contact Info">
+                <ContactForm></ContactForm>
+            </FormSection>
+
             <FormSection section-title="Experience">
                 <ExperienceForm></ExperienceForm>
             </FormSection>
@@ -17,7 +21,19 @@
             <FormSection section-title="Education">
                 <EducationForm></EducationForm>
             </FormSection>
-            
+
+            <FormSection section-title="Projects">
+                <ProjectsForm></ProjectsForm>
+            </FormSection>
+
+            <FormSection section-title="Skills">
+                <SkillsForm></SkillsForm>
+            </FormSection>
+
+            <FormSection section-title="Interests">
+                <InterestsForm></InterestsForm>
+            </FormSection>
+
         </div>
     </div>
 </template>
@@ -25,16 +41,24 @@
 <script>
 import FormSection from './FormParts/FormSection';
 import HeaderForm from './FormParts/HeaderForm';
+import ContactForm from './FormParts/ContactForm';
 import ExperienceForm from './FormParts/ExperienceForm';
 import EducationForm from './FormParts/EducationForm';
+import SkillsForm from './FormParts/SkillsForm';
+import InterestsForm from './FormParts/InterestsForm';
+import ProjectsForm from './FormParts/ProjectsForm';
 
 export default {
     name: 'EditResumeContentForm',
     components: {
         FormSection,
         HeaderForm,
+        ContactForm,
         ExperienceForm,
-        EducationForm
+        EducationForm,
+        SkillsForm,
+        InterestsForm,
+        ProjectsForm
     },
     methods: {
         showResume() {
@@ -66,20 +90,21 @@ export default {
     padding: .5rem 1rem;
     border-radius: .25rem;
     background: #2bc8cb;
+    background: linear-gradient(180deg, rgba(59,218,200,1) 0%, rgba(43,200,203,1) 90%);
     color: #fff;
     font-weight: 600;
     cursor: pointer;
 }
 
 .btn:hover {
-    background: #23a0a2;
+    background: #27b5b8;
 }
 
 .resume-section-select {
     padding: .25rem .5rem;
     font-size: 1rem;
     width: 300px;
-    color: #23a0a2;
+    color: #30b4b6;
     font-weight: 600;
     letter-spacing: .5px;
     border-color: #777;

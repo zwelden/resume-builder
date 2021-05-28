@@ -71,7 +71,7 @@ label {
   display: block;
   color: #8b8b8c;
   margin-bottom: 2px;
-  line-height: 1.1;
+  line-height: 1;
   font-size: .85rem;
 }
 
@@ -85,7 +85,7 @@ input {
   border: 1px solid #e7e7e8;
   border-radius: 4px;
   background: #f8f9fb;
-  margin-bottom: 1rem;
+  margin-bottom: .75rem;
 }
 
 @media print {
