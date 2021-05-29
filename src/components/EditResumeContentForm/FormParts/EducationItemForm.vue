@@ -31,7 +31,7 @@
         </div>
 
         <div class="action-buttons">
-            <button class="btn btn-sm btn-secondary">Cancel</button>
+            <button class="btn btn-sm btn-secondary" @click="cancelEdit">Cancel</button>
             <button class="btn btn-sm btn-primary">Save</button>
         </div>
     </div>
@@ -39,7 +39,12 @@
 
 <script>
 export default {
-    name: 'EducationItemForm'
+    name: 'EducationItemForm',
+    methods: {
+        cancelEdit() {
+            this.$emit('cancelEdit');
+        }
+    }
 }
 </script>
 

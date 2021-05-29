@@ -1,23 +1,24 @@
 <template>
     <div class="experience-form">
-        <FormCard>
+        <FormCard v-for="experience in experienceItems" :key="experience.order" v-slot="{ editActive, cancelEdit }">
             <ExperienceItemCardContent 
-                v-for="experience in experienceItems" 
-                :key="experience.order"
                 :company-name="experience.company"
                 :job-title="experience.jobTitle"
                 :start="experience.start"
-                :end="experience.end" >
+                :end="experience.end" 
+                :order="experience.order"
+                :edit-active="editActive"
+                :cancel-edit="cancelEdit">
             </ExperienceItemCardContent>
         </FormCard>
 
-        <div class="new-experience-item-card">
+        <div v-if="newItemActive" class="new-experience-item-card">
             <h5>New Experience Item</h5>
-            <ExperienceItemForm />  
+            <ExperienceItemForm v-on:cancelEdit="cancelEdit" v-on:saveEdit="saveEdit"></ExperienceItemForm>  
         </div>
 
         <div class="action-buttons">
-            <button class="btn btn-sm btn-alt">
+            <button v-if="newItemActive == false" class="btn btn-md btn-alt" @click="addNewExprItem">
                 Add new exerience item
             </button>
         </div>
@@ -31,24 +32,40 @@ import ExperienceItemCardContent from './ExperienceItemCardContent';
 
 export default {
     name: 'ExperienceForm',
+    components: {
+        ExperienceItemForm,
+        FormCard,
+        ExperienceItemCardContent
+    },
+    data() {
+        return {
+            newItemActive: false
+        }
+    },
+    methods: {
+        addNewExprItem() {
+            this.newItemActive = true;
+        },
+       
+        cancelEdit() {
+            this.newItemActive = false;
+        },
+
+        saveEdit() {
+            this.newItemActive = false;
+        }
+    },
     computed: {
         experienceItems() {
             return this.$store.state.resumeContent.experience;
         }
     },
-    components: {
-        ExperienceItemForm,
-        FormCard,
-        ExperienceItemCardContent
-    }
+    
 }
 </script>
 
 <style scoped>
-h5 {
-    margin: 0;
-    margin-bottom: 1rem;
-}
+
 
 .new-experience-item-card {
     position: relative;
@@ -65,8 +82,13 @@ h5 {
 </style>
 
 <style>
-.new-experience-item-card input,
-.new-experience-item-card textarea {
+.experience-form h5 {
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.experience-form input,
+.experience-form textarea {
     background: #fff !important;
 }
 </style>

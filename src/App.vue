@@ -117,9 +117,10 @@ input {
 }
 
 .btn-primary {
-  background: #2bc8cb;
-  background: linear-gradient(180deg, rgba(59,218,200,1) 0%, rgba(43,200,203,1) 90%);
+  background: rgba(31,196,199,1);
+  background: linear-gradient(180deg, rgba(59,218,200,1) 0%, rgba(31,196,199,1) 90%);
   color: #fff;
+  text-shadow: 1px 1px 2px #1d9698;
 }
 
 .btn-primary:hover {
@@ -128,8 +129,8 @@ input {
 
 .btn-secondary {
   background: rgba(190,190,190,1);
-  background: linear-gradient(180deg, rgba(225,225,225,1) 0%, rgba(210,210,210,1) 90%);
-  color: #5a5a60;
+  background: linear-gradient(180deg, rgb(230 230 230) 0%, rgb(218 218 218) 90%);
+  color: #6e6e70;
 }
 
 .btn-secondary:hover {

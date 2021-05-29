@@ -89,6 +89,12 @@ export const store = new Vuex.Store({
             state.activeDisplay.config = false;
             state.activeDisplay.edit = false;
             state.activeDisplay.resume = true;
+        },
+
+        saveNewExperience(state, experience) {
+            let exprLen = state.resumeContent.experience.length;
+            experience.order = exprLen;
+            state.resumeContent.experience.push(experience);
         }
     }
 })

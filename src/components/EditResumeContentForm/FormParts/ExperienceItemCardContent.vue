@@ -1,29 +1,45 @@
 <template>
     <div class="experience-item-card-content">
-        <div class="company-name">
-            {{ companyName }}
+        <div v-if="!editActive" class="saved-data">
+            <div class="company-name">
+                {{ companyName }}
+            </div>
+            <div class="position-title">
+                {{ jobTitle }}
+            </div>
+            <div class="experience-subtitle">
+                {{ start }} - {{ end }}
+            </div>
         </div>
-        <div class="position-title">
-            {{ jobTitle }}
-        </div>
-        <div class="experience-subtitle">
-            {{ start }} - {{ end }}
+        
+        <div v-if="editActive" class="edit-form">
+            <h5>Edit Experience Item</h5>
+            <ExperienceItemForm :order="order" @cancelEdit="cancelEdit"></ExperienceItemForm>
         </div>
     </div>
 </template>
 
 <script>
+import ExperienceItemForm from './ExperienceItemForm';
+
 export default {
     name: 'ExperienceItemCardContent',
-    props: ['companyName', 'jobTitle', 'start', 'end']
+    props: {
+        companyName: String, 
+        jobTitle: String, 
+        start: String, 
+        end: String, 
+        order: Number,
+        editActive: Boolean,
+        cancelEdit: Function
+    },
+    components: {
+        ExperienceItemForm
+    }
 }
 </script>
 
 <style scoped>
-/* button svg {
-    height: .9rem;
-} */
-
 .company-name {
     font-size: 1.2rem;
     font-weight: 600;
