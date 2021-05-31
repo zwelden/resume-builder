@@ -92,13 +92,14 @@ export default {
         },
 
         saveExperience() {
+            let bullets = this.bullets.filter(b => b.text.trim().length > 0);
             let newExperience = {
                 company: this.company,
                 location: this.location,
                 jobTitle: this.jobTitle,
                 start: this.start,
                 end: this.end,
-                bullets: this.bullets
+                bullets: bullets
             };
 
             if (this.order !== undefined) {

@@ -91,6 +91,18 @@ export const store = new Vuex.Store({
             state.activeDisplay.resume = true;
         },
 
+        saveApplicantName(state, applicantName) {
+            state.resumeContent.applicantName = applicantName;
+        },
+
+        saveJobTitle(state, jobTitle) {
+            state.resumeContent.jobTitle = jobTitle;
+        },
+
+        saveContactInfo(state, contactInfo) {
+            state.resumeContent.contactInfo = contactInfo;
+        },
+
         saveNewExperience(state, experience) {
             let exprLen = state.resumeContent.experience.length;
             experience.order = exprLen;
@@ -100,7 +112,6 @@ export const store = new Vuex.Store({
         updateExperience(state, experience) {
             let targetOrder = experience.order;
             state.resumeContent.experience = state.resumeContent.experience.map(exp => { 
-                console.log(exp);
                 if (exp.order === targetOrder) {
                     exp = experience;
                 }
