@@ -103,6 +103,8 @@ export const store = new Vuex.Store({
             state.resumeContent.contactInfo = contactInfo;
         },
 
+
+        // EXPERIENCE MUTATIONS //
         saveNewExperience(state, experience) {
             let exprLen = state.resumeContent.experience.length;
             experience.order = exprLen;
@@ -161,6 +163,68 @@ export const store = new Vuex.Store({
                     exp.order = (exp.order === -1) ? currentOrder : exp.order;
                     return exp; })
                 .sort((a, b) => a.order - b.order);
-        }
+        },
+
+
+        // EDUCATION MUTATIONS //
+        saveNewEducation (state, education) {
+            let eduLen = state.resumeContent.education.length;
+            education.order = eduLen;
+            state.resumeContent.education.push(education);
+        },
+
+        updateEducation(state, education) {
+            let targetOrder = education.order;
+            state.resumeContent.education = state.resumeContent.education.map(edu => { 
+                if (edu.order === targetOrder) {
+                    edu = education;
+                }
+                return edu;
+            });
+        },
+
+        deleteEducation(state, targetOrder) {
+            state.resumeContent.education = state.resumeContent.education
+                .filter(edu => edu.order !== targetOrder)
+                .map((edu, idx) => {edu.order = idx; return edu; });
+        },
+
+        moveEducationItemUp(state, currentOrder) {
+            if (currentOrder === null || currentOrder === 0 || state.resumeContent.education.length <= 1) {
+                return;
+            }
+
+            state.resumeContent.education = state.resumeContent.education
+                .map(edu => { 
+                    edu.order = (edu.order === (currentOrder - 1)) ? -1 : edu.order;
+                    return edu; })
+                .map(edu => { 
+                    edu.order = (edu.order === currentOrder) ? edu.order - 1 : edu.order;
+                    return edu; })
+                .map(edu => { 
+                    edu.order = (edu.order === -1) ? currentOrder : edu.order;
+                    return edu; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+        moveEducationItemDown(state, currentOrder) {
+            let eduLen = state.resumeContent.education.length;
+
+            if (currentOrder === null || eduLen <= 1 || currentOrder === (eduLen - 1)) {
+                return;
+            }
+
+            state.resumeContent.education = state.resumeContent.education
+                .map(edu => { 
+                    edu.order = (edu.order === (currentOrder + 1)) ? -1 : edu.order;
+                    return edu; })
+                .map(edu => { 
+                    edu.order = (edu.order === currentOrder) ? edu.order + 1 : edu.order;
+                    return edu; })
+                .map(edu => { 
+                    edu.order = (edu.order === -1) ? currentOrder : edu.order;
+                    return edu; })
+                .sort((a, b) => a.order - b.order);
+        },
     }
 })

@@ -30,7 +30,7 @@
             <div class="bullet-container" v-for="bullet in bullets" :key="bullet.order">
                 <label for="">Bullet</label>
                 <div class="bullet-input-wrapper">
-                    <textarea name="" id="bullet-info-1" rows="2" style="resize:none;" v-model="bullet.text"></textarea>
+                    <textarea name="" rows="2" style="resize:none;" v-model="bullet.text"></textarea>
                     <button class="btn btn-sm btn-danger-outline delete-bullet-btn" @click="deleteBullet(bullet.order)">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -132,11 +132,6 @@ export default {
 </script>
 
 <style scoped>
-h5 {
-    margin: 0;
-    margin-bottom: .5rem;
-}
-
 .start-end-containers {
     display: flex;
     justify-content: space-between;
@@ -149,6 +144,11 @@ h5 {
 
 .bullets-wrapper {
     margin-bottom: 1.5rem;
+}
+
+.bullets-wrapper h5 {
+    margin: 0;
+    margin-bottom: .5rem;
 }
 
 .bullet-input-wrapper {

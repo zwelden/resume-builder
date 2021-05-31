@@ -86,8 +86,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 .new-experience-item-card {
     position: relative;
     border: 1px solid #e7e7e8;
