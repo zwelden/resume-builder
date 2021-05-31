@@ -1,7 +1,7 @@
 <template>
     <div class="form-item-card">
         <div class="card-content">
-            <slot :edit-active="editActive" :cancel-edit="cancelCardEdit"></slot>
+            <slot :edit-active="editActive" :cancel-edit="cancelCardEdit" :save-edit="saveCardEdit"></slot>
         </div>
         <div v-if="!editActive" class="card-actions">
 
@@ -47,6 +47,10 @@ export default {
         },
 
         cancelCardEdit() {
+           this.editActive = false; 
+        },
+
+        saveCardEdit() {
            this.editActive = false; 
         }
     }

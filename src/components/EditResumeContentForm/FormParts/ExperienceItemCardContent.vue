@@ -14,7 +14,7 @@
         
         <div v-if="editActive" class="edit-form">
             <h5>Edit Experience Item</h5>
-            <ExperienceItemForm :order="order" @cancelEdit="cancelEdit"></ExperienceItemForm>
+            <ExperienceItemForm :order="order" @cancelEdit="cancelEdit" @saveEdit="saveEdit"></ExperienceItemForm>
         </div>
     </div>
 </template>
@@ -31,7 +31,8 @@ export default {
         end: String, 
         order: Number,
         editActive: Boolean,
-        cancelEdit: Function
+        cancelEdit: Function,
+        saveEdit: Function
     },
     components: {
         ExperienceItemForm

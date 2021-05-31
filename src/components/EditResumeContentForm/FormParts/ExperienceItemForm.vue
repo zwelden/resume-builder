@@ -101,12 +101,19 @@ export default {
                 bullets: this.bullets
             };
 
-            this.$store.commit('saveNewExperience', newExperience);
+            if (this.order !== undefined) {
+                newExperience.order = this.order;
+                this.$store.commit('updateExperience', newExperience);
+            }
+            else {
+                this.$store.commit('saveNewExperience', newExperience);
+            }
+            
             this.$emit('saveEdit');
         }
     },
     created () {
-        if (this.order === 'undefined') {
+        if (this.order === undefined) {
             return;
         }
 

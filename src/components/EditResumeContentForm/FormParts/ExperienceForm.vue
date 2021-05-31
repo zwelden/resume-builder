@@ -1,6 +1,6 @@
 <template>
     <div class="experience-form">
-        <FormCard v-for="experience in experienceItems" :key="experience.order" v-slot="{ editActive, cancelEdit }">
+        <FormCard v-for="experience in experienceItems" :key="experience.order" v-slot="{ editActive, cancelEdit, saveEdit }">
             <ExperienceItemCardContent 
                 :company-name="experience.company"
                 :job-title="experience.jobTitle"
@@ -8,7 +8,8 @@
                 :end="experience.end" 
                 :order="experience.order"
                 :edit-active="editActive"
-                :cancel-edit="cancelEdit">
+                :cancel-edit="cancelEdit"
+                :save-edit="saveEdit">
             </ExperienceItemCardContent>
         </FormCard>
 

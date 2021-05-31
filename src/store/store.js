@@ -95,6 +95,17 @@ export const store = new Vuex.Store({
             let exprLen = state.resumeContent.experience.length;
             experience.order = exprLen;
             state.resumeContent.experience.push(experience);
+        },
+
+        updateExperience(state, experience) {
+            let targetOrder = experience.order;
+            state.resumeContent.experience = state.resumeContent.experience.map(exp => { 
+                console.log(exp);
+                if (exp.order === targetOrder) {
+                    exp = experience;
+                }
+                return exp;
+            });
         }
     }
 })
