@@ -117,6 +117,10 @@ export const store = new Vuex.Store({
                 }
                 return exp;
             });
+        },
+
+        deleteExperience(state, targetOrder) {
+            state.resumeContent.experience = state.resumeContent.experience.filter(exp => exp.order !== targetOrder);
         }
     }
 })

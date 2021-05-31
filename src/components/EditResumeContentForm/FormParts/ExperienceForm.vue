@@ -1,6 +1,12 @@
 <template>
     <div class="experience-form">
-        <FormCard v-for="experience in experienceItems" :key="experience.order" v-slot="{ editActive, cancelEdit, saveEdit }">
+        <FormCard 
+            v-for="experience in experienceItems" 
+            :key="experience.order" 
+            :reference-id="experience.order" 
+            v-slot="{ editActive, cancelEdit, saveEdit }" 
+            @deleteItem="deleteExperienceItem($event)">
+            
             <ExperienceItemCardContent 
                 :company-name="experience.company"
                 :job-title="experience.jobTitle"
@@ -54,6 +60,10 @@ export default {
 
         saveEdit() {
             this.newItemActive = false;
+        },
+
+        deleteExperienceItem(order) {
+            this.$store.commit('deleteExperience', order);
         }
     },
     computed: {
