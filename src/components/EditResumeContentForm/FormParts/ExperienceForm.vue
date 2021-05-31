@@ -5,8 +5,10 @@
             :key="experience.order" 
             :reference-id="experience.order" 
             v-slot="{ editActive, cancelEdit, saveEdit }" 
-            @deleteItem="deleteExperienceItem($event)">
-            
+            @deleteItem="deleteExperienceItem($event)"
+            @moveItemUp="moveItemUp($event)"
+            @moveItemDown="moveItemDown($event)">
+
             <ExperienceItemCardContent 
                 :company-name="experience.company"
                 :job-title="experience.jobTitle"
@@ -64,6 +66,14 @@ export default {
 
         deleteExperienceItem(order) {
             this.$store.commit('deleteExperience', order);
+        },
+
+        moveItemUp(currentOrder) {
+            this.$store.commit('moveExperienceItemUp', currentOrder);
+        },
+
+        moveItemDown(currentOrder) {
+            this.$store.commit('moveExperienceItemDown', currentOrder);
         }
     },
     computed: {

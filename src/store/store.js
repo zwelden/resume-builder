@@ -120,7 +120,47 @@ export const store = new Vuex.Store({
         },
 
         deleteExperience(state, targetOrder) {
-            state.resumeContent.experience = state.resumeContent.experience.filter(exp => exp.order !== targetOrder);
+            state.resumeContent.experience = state.resumeContent.experience
+                .filter(exp => exp.order !== targetOrder)
+                .map((exp, idx) => {exp.order = idx; return exp; });
+        },
+
+        moveExperienceItemUp(state, currentOrder) {
+            if (currentOrder === null || currentOrder === 0 || state.resumeContent.experience.length <= 1) {
+                return;
+            }
+
+            state.resumeContent.experience = state.resumeContent.experience
+                .map(exp => { 
+                    exp.order = (exp.order === (currentOrder - 1)) ? -1 : exp.order;
+                    return exp; })
+                .map(exp => { 
+                    exp.order = (exp.order === currentOrder) ? exp.order - 1 : exp.order;
+                    return exp; })
+                .map(exp => { 
+                    exp.order = (exp.order === -1) ? currentOrder : exp.order;
+                    return exp; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+        moveExperienceItemDown(state, currentOrder) {
+            let expLen = state.resumeContent.experience.length;
+
+            if (currentOrder === null || expLen <= 1 || currentOrder === (expLen - 1)) {
+                return;
+            }
+
+            state.resumeContent.experience = state.resumeContent.experience
+                .map(exp => { 
+                    exp.order = (exp.order === (currentOrder + 1)) ? -1 : exp.order;
+                    return exp; })
+                .map(exp => { 
+                    exp.order = (exp.order === currentOrder) ? exp.order + 1 : exp.order;
+                    return exp; })
+                .map(exp => { 
+                    exp.order = (exp.order === -1) ? currentOrder : exp.order;
+                    return exp; })
+                .sort((a, b) => a.order - b.order);
         }
     }
 })

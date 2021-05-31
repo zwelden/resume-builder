@@ -17,13 +17,13 @@
                 </svg>
 
             </button>
-            <button class="action-button btn btn-sm btn-alt">
+            <button class="action-button btn btn-sm btn-alt" @click="moveItemUp">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                 </svg>
             </button>
 
-            <button class="action-button btn btn-sm btn-alt">
+            <button class="action-button btn btn-sm btn-alt" @click="moveItemDown">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
@@ -59,6 +59,14 @@ export default {
 
         deleteItem() {
             this.$emit('deleteItem', this.referenceId);
+        },
+
+        moveItemUp() {
+            this.$emit('moveItemUp', this.referenceId);
+        },
+
+        moveItemDown() {
+            this.$emit('moveItemDown', this.referenceId);
         }
     }
 }
