@@ -28,7 +28,7 @@
 
         <div class="action-buttons">
             <button v-if="newItemActive == false" class="btn btn-md btn-alt" @click="addNewExprItem">
-                Add new exerience item
+                Add Exerience
             </button>
         </div>
     </div>
@@ -36,7 +36,7 @@
 
 <script>
 import ExperienceItemForm from './ExperienceItemForm';
-import FormCard from './FormCard';
+import FormCard from '../FormCard';
 import ExperienceItemCardContent from './ExperienceItemCardContent';
 
 export default {

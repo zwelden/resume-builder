@@ -28,7 +28,7 @@
 
         <div class="action-buttons">
             <button v-if="newItemActive == false" class="btn btn-md btn-alt" @click="addNewEduItem">
-                Add new education item
+                Add Education
             </button>
         </div>
 
@@ -37,7 +37,7 @@
 
 <script>
 import EducationItemForm from './EducationItemForm';
-import FormCard from './FormCard';
+import FormCard from '../FormCard';
 import EducationItemCardContent from './EducationItemCardContent';
 
 export default {

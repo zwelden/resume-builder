@@ -64,7 +64,23 @@ export const store = new Vuex.Store({
                     name: "Snowboarding"
                 }
             ],
-            projects: []
+            projects: [
+                {
+                    name: 'Vue App',
+                    year: 2020,
+                    projectLink: 'https://google.com',
+                    bullets: [
+                        {
+                            order: 0,
+                            text: 'Integer pellentesque dolor sed erat mattis luctus. Vestibulum ac condimentum felis, vel volutpat diam.'
+                        },
+                        {
+                            order: 1,
+                            text: 'Aliquam gravida eleifend metus, ultrices porttitor libero varius a. Aliquam vitae urna ut ex rhoncus mollis vel at lectus.'
+                        }
+                    ]
+                }
+            ]
         },
         activeDisplay: {
             resume: true,

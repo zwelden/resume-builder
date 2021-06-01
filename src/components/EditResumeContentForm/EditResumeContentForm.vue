@@ -40,13 +40,13 @@
 
 <script>
 import FormSection from './FormParts/FormSection';
-import HeaderForm from './FormParts/HeaderForm';
-import ContactForm from './FormParts/ContactForm';
-import ExperienceForm from './FormParts/ExperienceForm';
-import EducationForm from './FormParts/EducationForm';
-import SkillsForm from './FormParts/SkillsForm';
-import InterestsForm from './FormParts/InterestsForm';
-import ProjectsForm from './FormParts/ProjectsForm';
+import HeaderForm from './FormParts/Header/HeaderForm';
+import ContactForm from './FormParts/Contact/ContactForm';
+import ExperienceForm from './FormParts/Experience/ExperienceForm';
+import EducationForm from './FormParts/Education/EducationForm';
+import SkillsForm from './FormParts/Skills/SkillsForm';
+import InterestsForm from './FormParts/Interests/InterestsForm';
+import ProjectsForm from './FormParts/Project/ProjectsForm';
 
 export default {
     name: 'EditResumeContentForm',

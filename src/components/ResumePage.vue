@@ -20,6 +20,8 @@
                 
                 <div v-if="resumeContent.projects.length > 0" class="resume-detail-section">
                     <SectionTitle title-name="Projects"></SectionTitle>
+
+                    <Project v-for="project in resumeContent.projects" :key="project.order" :data="project"></Project>
                 </div>
                 
             </div>
@@ -53,6 +55,7 @@ import Title from './ResumeComponents/Title';
 import Contact from './ResumeComponents/Contact';
 import SectionTitle from './ResumeComponents/SectionTitle';
 import ExperienceDetail from './ResumeComponents/ExperienceDetail';
+import Project from './ResumeComponents/Project';
 import Skill from './ResumeComponents/Skill';
 import Education from './ResumeComponents/Education';
 import Interest from './ResumeComponents/Interest';
@@ -64,6 +67,7 @@ export default {
         Contact,
         SectionTitle,
         ExperienceDetail,
+        Project,
         Skill,
         Education,
         Interest
