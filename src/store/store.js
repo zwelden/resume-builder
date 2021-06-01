@@ -453,5 +453,66 @@ export const store = new Vuex.Store({
                     return s; })
                 .sort((a, b) => a.order - b.order);
         },
+
+        // INTERESTS MUTATIONS //
+        saveNewInterest(state, interest) {
+            let interestLen = state.resumeContent.interests.length;
+            interest.order = interestLen;
+            state.resumeContent.interests.push(interest);
+        },
+
+        updateInterest(state, interest) {
+            let targetOrder = interest.order;
+            state.resumeContent.interests = state.resumeContent.interests.map(i => { 
+                if (i.order === targetOrder) {
+                    i = interest;
+                }
+                return i;
+            });
+        },
+
+        deleteInterest(state, targetOrder) {
+            state.resumeContent.interests = state.resumeContent.interests
+                .filter(i => i.order !== targetOrder)
+                .map((i, idx) => {i.order = idx; return i; });
+        },
+
+        moveInterestItemUp(state, currentOrder) {
+            if (currentOrder === null || currentOrder === 0 || state.resumeContent.interests.length <= 1) {
+                return;
+            }
+
+            state.resumeContent.interests = state.resumeContent.interests
+                .map(i => { 
+                    i.order = (i.order === (currentOrder - 1)) ? -1 : i.order;
+                    return i; })
+                .map(i => { 
+                    i.order = (i.order === currentOrder) ? i.order - 1 : i.order;
+                    return i; })
+                .map(i => { 
+                    i.order = (i.order === -1) ? currentOrder : i.order;
+                    return i; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+        moveInterestItemDown(state, currentOrder) {
+            let interestLen = state.resumeContent.interests.length;
+
+            if (currentOrder === null || interestLen <= 1 || currentOrder === (interestLen - 1)) {
+                return;
+            }
+
+            state.resumeContent.interests = state.resumeContent.interests
+                .map(i => { 
+                    i.order = (i.order === (currentOrder + 1)) ? -1 : i.order;
+                    return i; })
+                .map(i => { 
+                    i.order = (i.order === currentOrder) ? i.order + 1 : i.order;
+                    return i; })
+                .map(i => { 
+                    i.order = (i.order === -1) ? currentOrder : i.order;
+                    return i; })
+                .sort((a, b) => a.order - b.order);
+        },
     }
 })

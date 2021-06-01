@@ -1,31 +1,26 @@
 <template>
-    <div class="skill-item">
+    <div class="interest-item">
         <div>
-            <label for="">Skill Name</label>
+            <label for="">Interest Name</label>
             <input type="text" v-model="name">
-        </div>
-        <div>
-            <label for="">Number of Years</label>
-            <input type="text" v-model="years">
         </div>
 
         <div class="action-buttons">
             <button class="btn btn-md btn-secondary" @click="cancelEdit">Cancel</button>
-            <button class="btn btn-md btn-primary" @click="saveSkill">Save</button>
+            <button class="btn btn-md btn-primary" @click="saveInterest">Save</button>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'SkillItemForm',
+    name: 'InterestItemForm',
     props: {
         order: Number
     },
     data () {
         return {
-            name: '',
-            years: ''
+            name: ''
         }
     },
     methods: {
@@ -33,18 +28,17 @@ export default {
             this.$emit('cancelEdit');
         },
 
-        saveSkill() {
-            let newSkill = {
-                name: this.name,
-                years: this.years,
+        saveInterest() {
+            let newInterest = {
+                name: this.name
             };
 
             if (this.order !== undefined) {
-                newSkill.order = this.order;
-                this.$store.commit('updateSkill', newSkill);
+                newInterest.order = this.order;
+                this.$store.commit('updateInterest', newInterest);
             }
             else {
-                this.$store.commit('saveNewSkill', newSkill);
+                this.$store.commit('saveNewInterest', newInterest);
             }
             
             this.$emit('saveEdit');
@@ -56,10 +50,9 @@ export default {
         }
 
         let targetOrder = this.order;
-        let skill = this.$store.state.resumeContent.skills.filter(s => s.order === targetOrder)[0];
+        let interest = this.$store.state.resumeContent.interests.filter(i => i.order === targetOrder)[0];
 
-        this.name = skill.name;
-        this.years = skill.years;
+        this.name = interest.name;
     }
 }
 </script>
