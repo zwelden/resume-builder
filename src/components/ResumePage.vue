@@ -1,5 +1,5 @@
 <template>
-    <div class="resume-page">
+    <div class="resume-page" v-bind:style="{ transform: transform }">
         <div class="resume-page-section resume-header">
             <div class="resume-col col-2">
                 <Title :applicant-name="resumeContent.applicantName" 
@@ -64,6 +64,11 @@ import Interest from './ResumeComponents/Interest';
 
 export default {
     name: 'ResumePage',
+    data() {
+        return {
+            transform: 'scale(1)'
+        }
+    },
     components: {
         Title,
         Contact,
@@ -78,6 +83,22 @@ export default {
         resumeContent() {
             return this.$store.state.resumeContent;
         }
+    },
+    mounted() {
+        // let windowDPI = (window.devicePixelRatio) ? window.devicePixelRatio : 1;
+        let windowWidth = window.innerWidth;
+        let windowInches = windowWidth / 96; // not terribly accurate
+
+        if (windowInches >= 8.6) {
+            this.transform = 'scale(1)';
+        }
+        else if (windowInches >= 8.5) {
+            this.transform = 'scale(.95)';
+        }
+        else {
+            let scale = (windowInches / 8.5) * .98;
+            this.transform = 'scale(' + scale + ')';
+        }
     }
 }
 </script>
@@ -89,9 +110,10 @@ export default {
     height: 11in;
     padding: .5in;
     box-shadow: 0 5px 10px -2px #9e9e9e;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%) scale(1);
+    /* position: relative; */
+    /* left: 50%; */
+    margin: auto;
+    transform-origin: top left;
 }
 
 .resume-page-section {
@@ -118,6 +140,12 @@ export default {
 
 .resume-detail-section {
     margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 8.6in) {
+    .resume-page {
+        
+    }
 }
 
 @media print {

@@ -103,13 +103,12 @@ export default {
 <style scoped>
 .edit-resume-content-form {
     background: #fff;
-    width: 7.5in;
+    width: 95%;
+    max-width: 7.5in;
     padding: .25in;
     box-shadow: 0 5px 10px -2px #9e9e9e;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%) scale(1);
-    text-align: left;
+    margin: auto;
 }
 
 .return-to-resume-wrapper {
@@ -131,4 +130,10 @@ export default {
     margin-bottom: 1rem;
 }
 
+
+@media print {
+    .edit-resume-content-form {
+        display: none;
+    }
+}
 </style>
