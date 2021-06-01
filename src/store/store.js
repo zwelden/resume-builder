@@ -195,6 +195,28 @@ export const store = new Vuex.Store({
             state.activeDisplay.resume = true;
         },
 
+        loadResumeContent(state, resumeContent) {
+            let defaultContent = {
+                applicantName: '',
+                jobTitle: '',
+                contactInfo: {
+                    location: '',
+                    phone: '',
+                    email: '',
+                    linkedin: '',
+                    website: '',
+                    github: ''
+                },
+                experience: [],
+                skills: [],
+                education: [],
+                interests: [],
+                projects: []
+            };
+
+            state.resumeContent = Vue.util.extend(defaultContent, resumeContent);
+        },
+
         saveApplicantName(state, applicantName) {
             state.resumeContent.applicantName = applicantName;
         },

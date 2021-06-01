@@ -1,10 +1,16 @@
 <template>
     <div class="edit-resume-content-form">
         <div class="return-to-resume-wrapper">
-            <button class="btn btn-primary" @click="showResume">&lt;&lt; Back to Resumé</button>
+            <div>
+                <button class="btn btn-primary" @click="showResume">&lt;&lt; Back to Resumé</button>
+            </div>
+            <div v-if="!jsonLoaderActive">
+                <button class="btn btn-secondary" @click="exportJson">Export to JSON</button>
+                <button class="btn btn-secondary" @click="loadJson">Load from JSON</button>
+            </div>
         </div>
 
-        <div class="edit-sections">
+        <div v-if="!jsonLoaderActive" class="edit-sections">
 
             <FormSection section-title="Resume Header">
                 <HeaderForm></HeaderForm>
@@ -35,6 +41,10 @@
             </FormSection>
 
         </div>
+
+        <div v-if="jsonLoaderActive" class="json-load-wrapper">
+            <JsonLoader :load-type="jsonLoadType" @cancelJson="cancelJson"></JsonLoader>
+        </div>
     </div>
 </template>
 
@@ -47,9 +57,16 @@ import EducationForm from './FormParts/Education/EducationForm';
 import SkillsForm from './FormParts/Skills/SkillsForm';
 import InterestsForm from './FormParts/Interests/InterestsForm';
 import ProjectsForm from './FormParts/Project/ProjectsForm';
+import JsonLoader from './FormParts/JsonLoader';
 
 export default {
     name: 'EditResumeContentForm',
+    data() {
+        return {
+            jsonLoaderActive: false,
+            jsonLoadType: 'import'
+        }
+    },
     components: {
         FormSection,
         HeaderForm,
@@ -58,11 +75,26 @@ export default {
         EducationForm,
         SkillsForm,
         InterestsForm,
-        ProjectsForm
+        ProjectsForm,
+        JsonLoader
     },
     methods: {
         showResume() {
             this.$store.commit('showResume');
+        },
+
+        loadJson() {
+            this.jsonLoadType = 'import';
+            this.jsonLoaderActive = true;
+        },
+
+        exportJson() {
+            this.jsonLoadType = 'export';
+            this.jsonLoaderActive = true;
+        },
+
+        cancelJson() {
+            this.jsonLoaderActive = false;
         }
     }
 }
@@ -81,8 +113,9 @@ export default {
 }
 
 .return-to-resume-wrapper {
-    text-align: left;
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
 }
 
 .resume-section-select {
