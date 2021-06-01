@@ -84,22 +84,22 @@ export const store = new Vuex.Store({
                 {
                     order: 0,
                     name: 'Javascript',
-                    years: 5
+                    years: '5'
                 },
                 {
                     order: 1,
                     name: 'Vue',
-                    years: 2
+                    years: '2'
                 },
                 {
                     order: 2,
                     name: 'Python',
-                    years: 3
+                    years: '3'
                 }
                 ,{
                     order: 3,
                     name: 'Flask',
-                    years: 2
+                    years: '2'
                 }
             ],
             education: [
@@ -137,8 +137,9 @@ export const store = new Vuex.Store({
             ],
             projects: [
                 {
+                    order: 0,
                     name: 'Vue App',
-                    year: 2020,
+                    year: '2020',
                     link: 'https://google.com',
                     bullets: [
                         {
@@ -152,8 +153,9 @@ export const store = new Vuex.Store({
                     ]
                 },
                 {
+                    order: 1,
                     name: 'Elixir App',
-                    year: 2019,
+                    year: '2019',
                     link: 'https://elixir-lang.org',
                     bullets: [
                         {
@@ -387,6 +389,68 @@ export const store = new Vuex.Store({
                 .map(p => { 
                     p.order = (p.order === -1) ? currentOrder : p.order;
                     return p; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+
+        // SKILL MUTATIONS //
+        saveNewSkill(state, skill) {
+            let skillLen = state.resumeContent.skills.length;
+            skill.order = skillLen;
+            state.resumeContent.skills.push(skill);
+        },
+
+        updateSkill(state, skill) {
+            let targetOrder = skill.order;
+            state.resumeContent.skills = state.resumeContent.skills.map(s => { 
+                if (s.order === targetOrder) {
+                    s = skill;
+                }
+                return s;
+            });
+        },
+
+        deleteSkill(state, targetOrder) {
+            state.resumeContent.skills = state.resumeContent.skills
+                .filter(s => s.order !== targetOrder)
+                .map((s, idx) => {s.order = idx; return s; });
+        },
+
+        moveSkillItemUp(state, currentOrder) {
+            if (currentOrder === null || currentOrder === 0 || state.resumeContent.skills.length <= 1) {
+                return;
+            }
+
+            state.resumeContent.skills = state.resumeContent.skills
+                .map(s => { 
+                    s.order = (s.order === (currentOrder - 1)) ? -1 : s.order;
+                    return s; })
+                .map(s => { 
+                    s.order = (s.order === currentOrder) ? s.order - 1 : s.order;
+                    return s; })
+                .map(s => { 
+                    s.order = (s.order === -1) ? currentOrder : s.order;
+                    return s; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+        moveSkillItemDown(state, currentOrder) {
+            let skillLen = state.resumeContent.skills.length;
+
+            if (currentOrder === null || skillLen <= 1 || currentOrder === (skillLen - 1)) {
+                return;
+            }
+
+            state.resumeContent.skills = state.resumeContent.skills
+                .map(s => { 
+                    s.order = (s.order === (currentOrder + 1)) ? -1 : s.order;
+                    return s; })
+                .map(s => { 
+                    s.order = (s.order === currentOrder) ? s.order + 1 : s.order;
+                    return s; })
+                .map(s => { 
+                    s.order = (s.order === -1) ? currentOrder : s.order;
+                    return s; })
                 .sort((a, b) => a.order - b.order);
         },
     }
