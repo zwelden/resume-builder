@@ -2,7 +2,9 @@
     <div class="resume-page">
         <div class="resume-page-section resume-header">
             <div class="resume-col col-2">
-                <Title :applicant-name="resumeContent.applicantName" :job-title="resumeContent.jobTitle"></Title>
+                <Title :applicant-name="resumeContent.applicantName" 
+                        :job-title="resumeContent.jobTitle">
+                </Title>
             </div>
             <div v-if="resumeContent.contactInfo" class="resume-col col-1">
                 <Contact :data="resumeContent.contactInfo"></Contact>
@@ -105,12 +107,12 @@ export default {
 
 
 .col-2 {
-    width: 66%;
+    width: 70%;
     padding: 1rem;
 }
 
 .col-1 {
-    width: 33%;
+    width: 30%;
     padding: 1rem;
 }
 

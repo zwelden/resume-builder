@@ -6,13 +6,16 @@
         <div class="resume-position-title">
             {{ jobTitle }}
         </div>
+        <div class="github-link">
+            <div v-if="github"><a href="#">{{ github }}</a></div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'Title',
-    props: ['applicantName', 'jobTitle']
+    props: ['applicantName', 'jobTitle', 'github']
 }
 </script>
 

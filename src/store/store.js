@@ -34,6 +34,50 @@ export const store = new Vuex.Store({
                             text: 'Donec velit mauris, tristique sit amet tortor ut, lacinia convallis ipsum. Nam vitae sem id purus malesuada scelerisque.'
                         }
                     ]
+                },
+                {
+                    order: 1,
+                    company: 'Company B',
+                    jobTitle: 'Manager of Things',
+                    start: 'July 2016',
+                    end: 'July 2018',
+                    location: 'Oklahoma City, OK',
+                    bullets: [
+                        {
+                            order: 0,
+                            text: 'Aenean ex massa, varius ac ultrices quis, efficitur eu magna.'
+                        },
+                        {
+                            order: 1,
+                            text: 'Etiam auctor tortor rhoncus, mollis nibh sollicitudin, efficitur arcu.'
+                        },
+                        {
+                            order: 2,
+                            text: 'Morbi ac diam ultrices, malesuada orci eget, suscipit libero.'
+                        }
+                    ]
+                },
+                {
+                    order: 2,
+                    company: 'Company C',
+                    jobTitle: 'Engineer of Things',
+                    start: 'July 2014',
+                    end: 'July 2016',
+                    location: 'St. Louis, MO',
+                    bullets: [
+                        {
+                            order: 0,
+                            text: 'Vestibulum tortor magna, pellentesque posuere metus vitae, hendrerit rhoncus urna.'
+                        },
+                        {
+                            order: 1,
+                            text: 'Etiam tristique sit amet sapien eu imperdiet.'
+                        },
+                        {
+                            order: 2,
+                            text: 'Nullam non mi fermentum ipsum pharetra maximus a ut purus.'
+                        }
+                    ]
                 }
             ],
             skills: [
@@ -41,6 +85,21 @@ export const store = new Vuex.Store({
                     order: 0,
                     name: 'Javascript',
                     years: 5
+                },
+                {
+                    order: 1,
+                    name: 'Vue',
+                    years: 2
+                },
+                {
+                    order: 2,
+                    name: 'Python',
+                    years: 3
+                }
+                ,{
+                    order: 3,
+                    name: 'Flask',
+                    years: 2
                 }
             ],
             education: [
@@ -62,13 +121,25 @@ export const store = new Vuex.Store({
                 {
                     order: 0,
                     name: "Snowboarding"
+                },
+                {
+                    order: 1,
+                    name: "Reading"
+                },
+                {
+                    order: 2,
+                    name: "Traveling"
+                },
+                {
+                    order: 3,
+                    name: "Backpacking"
                 }
             ],
             projects: [
                 {
                     name: 'Vue App',
                     year: 2020,
-                    projectLink: 'https://google.com',
+                    link: 'https://google.com',
                     bullets: [
                         {
                             order: 0,
@@ -77,6 +148,21 @@ export const store = new Vuex.Store({
                         {
                             order: 1,
                             text: 'Aliquam gravida eleifend metus, ultrices porttitor libero varius a. Aliquam vitae urna ut ex rhoncus mollis vel at lectus.'
+                        }
+                    ]
+                },
+                {
+                    name: 'Elixir App',
+                    year: 2019,
+                    link: 'https://elixir-lang.org',
+                    bullets: [
+                        {
+                            order: 0,
+                            text: 'In commodo lobortis purus nec bibendum.'
+                        },
+                        {
+                            order: 1,
+                            text: 'Suspendisse viverra massa et felis ultricies consequat.'
                         }
                     ]
                 }
@@ -240,6 +326,67 @@ export const store = new Vuex.Store({
                 .map(edu => { 
                     edu.order = (edu.order === -1) ? currentOrder : edu.order;
                     return edu; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+        // PROJECT MUTATIONS //
+        saveNewProject(state, project) {
+            let projLen = state.resumeContent.projects.length;
+            project.order = projLen;
+            state.resumeContent.projects.push(project);
+        },
+
+        updateProject(state, project) {
+            let targetOrder = project.order;
+            state.resumeContent.projects = state.resumeContent.projects.map(p => { 
+                if (p.order === targetOrder) {
+                    p = project;
+                }
+                return p;
+            });
+        },
+
+        deleteProject(state, targetOrder) {
+            state.resumeContent.projects = state.resumeContent.projects
+                .filter(p => p.order !== targetOrder)
+                .map((p, idx) => {p.order = idx; return p; });
+        },
+
+        moveProjectItemUp(state, currentOrder) {
+            if (currentOrder === null || currentOrder === 0 || state.resumeContent.projects.length <= 1) {
+                return;
+            }
+
+            state.resumeContent.projects = state.resumeContent.projects
+                .map(p => { 
+                    p.order = (p.order === (currentOrder - 1)) ? -1 : p.order;
+                    return p; })
+                .map(p => { 
+                    p.order = (p.order === currentOrder) ? p.order - 1 : p.order;
+                    return p; })
+                .map(p => { 
+                    p.order = (p.order === -1) ? currentOrder : p.order;
+                    return p; })
+                .sort((a, b) => a.order - b.order);
+        },
+
+        moveProjectItemDown(state, currentOrder) {
+            let projLen = state.resumeContent.projects.length;
+
+            if (currentOrder === null || projLen <= 1 || currentOrder === (projLen - 1)) {
+                return;
+            }
+
+            state.resumeContent.projects = state.resumeContent.projects
+                .map(p => { 
+                    p.order = (p.order === (currentOrder + 1)) ? -1 : p.order;
+                    return p; })
+                .map(p => { 
+                    p.order = (p.order === currentOrder) ? p.order + 1 : p.order;
+                    return p; })
+                .map(p => { 
+                    p.order = (p.order === -1) ? currentOrder : p.order;
+                    return p; })
                 .sort((a, b) => a.order - b.order);
         },
     }

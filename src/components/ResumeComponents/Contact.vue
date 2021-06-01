@@ -2,10 +2,10 @@
     <div class="resume-contact-info">
         <div v-if="data.location">{{ data.location }}</div>
         <div v-if="data.phone">{{ data.phone }}</div>
-        <div v-if="data.email"><a href="#">{{ data.email }}</a></div>
-        <div v-if="data.website"><a href="#">{{ data.website }}</a></div>
-        <div v-if="data.linkedin"><a href="#">{{ data.linkedin }}</a></div>
-        <div v-if="data.github"><a href="#">{{ data.github }}</a></div>
+        <div v-if="data.email"><small><a href="#">{{ data.email }}</a></small></div>
+        <div v-if="data.website"><small><a href="#">{{ data.website }}</a></small></div>
+        <div v-if="data.linkedin"><small><a href="#">{{ data.linkedin }}</a></small></div>
+        <div v-if="data.github"><small><a href="#">{{ data.github }}</a></small></div>
     </div>
 </template>
 

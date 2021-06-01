@@ -6,8 +6,8 @@
         <div class="project-year">
             {{ data.year }}
         </div>
-        <div v-if="data.projectLink" class="project-link">
-            <small><a :href="data.projectLink">{{ data.projectLink }}</a></small>
+        <div v-if="data.link" class="project-link">
+            <small><a :href="data.link">{{ data.link }}</a></small>
         </div>
 
         <div v-if="data.bullets.length > 0" class="project-bullets">
