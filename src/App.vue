@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <div class="resume-container">
-      <ResumePage v-if="resumeActive"/>
+    <div v-if="resumeActive" class="resume-container">
+      <ResumePage />
     </div>
     
     <SideMenu />
 
-    <EditResumeContentForm v-if="editActive"/>
+    <div v-if="editActive" class="edit-resume-container">
+      <EditResumeContentForm />
+    </div>
+    
   </div>
 </template>
 
@@ -62,6 +65,7 @@ body, div, span, p, a, button, ul, li, input, select, textarea {
   max-width: 100%;
 }
 
+.edit-resume-container,
 .resume-container {
   padding-top: 2rem;
   padding-bottom: 2rem;

@@ -122,6 +122,12 @@ export default {
     text-align: right;
 }
 
+.json-options-btns .btn {
+    margin-right: 0;
+    margin-left: .25rem;
+    margin-bottom: .5rem;
+}
+
 .resume-section-select {
     padding: .25rem .5rem;
     font-size: 1rem;

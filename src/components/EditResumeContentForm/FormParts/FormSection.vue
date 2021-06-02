@@ -42,4 +42,19 @@ h4 {
     flex-shrink: 0;
     flex-grow: 0;
 }
+
+@media only screen and (max-width: 600px) {
+    .form-section {
+        display: block;
+    }
+
+    .section-content,
+    .section-title {
+        width: 100%;
+    }
+
+    h4 {
+        margin-bottom: .5rem;
+    }
+}
 </style>
