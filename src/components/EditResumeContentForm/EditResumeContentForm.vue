@@ -1,10 +1,10 @@
 <template>
     <div class="edit-resume-content-form">
-        <div class="return-to-resume-wrapper">
+        <div class="top-actions">
             <div>
                 <button class="btn btn-primary" @click="showResume">&lt;&lt; Back to Resumé</button>
             </div>
-            <div v-if="!jsonLoaderActive">
+            <div v-if="!jsonLoaderActive" class="json-options-btns">
                 <button class="btn btn-secondary" @click="exportJson">Export to JSON</button>
                 <button class="btn btn-secondary" @click="loadJson">Load from JSON</button>
             </div>
@@ -109,12 +109,17 @@ export default {
     box-shadow: 0 5px 10px -2px #9e9e9e;
     position: relative;
     margin: auto;
+    text-align: left;
 }
 
-.return-to-resume-wrapper {
+.top-actions {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+}
+
+.json-options-btns {
+    text-align: right;
 }
 
 .resume-section-select {

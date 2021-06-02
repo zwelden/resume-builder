@@ -84,7 +84,7 @@ export default {
             return this.$store.state.resumeContent;
         }
     },
-    mounted() {
+    created() {
         // let windowDPI = (window.devicePixelRatio) ? window.devicePixelRatio : 1;
         let windowWidth = window.innerWidth;
         let windowInches = windowWidth / 96; // not terribly accurate
