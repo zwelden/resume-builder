@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <div v-if="resumeActive" class="resume-container">
-      <ResumePage />
+    <div v-if="resumeActive && activeResumeStyle === 1" class="resume-container">
+      <ResumeStyle1 />
     </div>
+
+    <div v-if="resumeActive && activeResumeStyle === 2" class="resume-container">
+      <ResumeStyle2 />
+    </div>
+    
     
     <SideMenu />
 
@@ -14,15 +19,23 @@
 </template>
 
 <script>
-import ResumePage from './components/ResumePage.vue'
+import ResumeStyle1 from './components/ResumePages/ResumeStyle1/ResumeStyle1.vue'
+import ResumeStyle2 from './components/ResumePages/ResumeStyle2/ResumeStyle2.vue'
 import SideMenu from './components/SideMenu/SideMenu'
 import EditResumeContentForm from './components/EditResumeContentForm/EditResumeContentForm'
 
 export default {
   name: 'App',
+  
+  data() {
+    return {
+      activeResumeStyle: 1
+    }
+  },
 
   components: {
-    ResumePage,
+    ResumeStyle1,
+    ResumeStyle2,
     SideMenu,
     EditResumeContentForm
   },

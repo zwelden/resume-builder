@@ -63,7 +63,7 @@ import Education from './ResumeComponents/Education';
 import Interest from './ResumeComponents/Interest';
 
 export default {
-    name: 'ResumePage',
+    name: 'ResumeStyle1',
     data() {
         return {
             transform: 'scale(1)'
@@ -140,12 +140,6 @@ export default {
 
 .resume-detail-section {
     margin-bottom: 2rem;
-}
-
-@media only screen and (max-width: 8.6in) {
-    .resume-page {
-        
-    }
 }
 
 @media print {
