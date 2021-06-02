@@ -5,27 +5,33 @@
                 :job-title="resumeContent.jobTitle">
         </Header>
 
-        <div class="left-col">
-            <div class="section-wrapper">
-                <SectionTitle title-name="Contact"></SectionTitle>
-                <Contact :data="resumeContent.contactInfo"></Contact>
-            </div>
-            
-            <div class="section-wrapper">
-                <SectionTitle title-name="Education"></SectionTitle>
-                <Education v-for="education in resumeContent.education" :key="education.order" :data="education"></Education>
+
+        <div class="resume-content-wrapper">
+
+            <div class="left-col">
+                <div class="section-wrapper">
+                    <ShortSectionTitle title-name="Contact"></ShortSectionTitle>
+                    <Contact :data="resumeContent.contactInfo"></Contact>
+                </div>
+                
+                <div class="section-wrapper">
+                    <ShortSectionTitle title-name="Education"></ShortSectionTitle>
+                    <Education v-for="education in resumeContent.education" :key="education.order" :data="education"></Education>
+                </div>
+
+                <div class="section-wrapper">
+                    <ShortSectionTitle title-name="Skills"></ShortSectionTitle>
+                    <Skill v-for="skill in resumeContent.skills" :key="skill.order" :skill-name="skill.name" :skill-years="skill.years"></Skill>
+                </div>
             </div>
 
-            <div class="section-wrapper">
-                <SectionTitle title-name="Skills"></SectionTitle>
-                <Skill v-for="skill in resumeContent.skills" :key="skill.order" :skill-name="skill.name" :skill-years="skill.years"></Skill>
+            <div class="content-col">
+                <LongSectionTitle title-name="Work Experience"></LongSectionTitle>
+                <Experience v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></Experience>
             </div>
             
         </div>
-
-        <div class="content-col">
-
-        </div>
+        
 
 
         <!-- <div v-if="resumeContent.contactInfo" class="resume-col col-1">
@@ -75,15 +81,16 @@
 
 <script>
 import Header from './ResumeComponents/Header';
-import SectionTitle from './ResumeComponents/SectionTitle';
+import ShortSectionTitle from './ResumeComponents/ShortSectionTitle';
+import LongSectionTitle from './ResumeComponents/LongSectionTitle';
 import Contact from './ResumeComponents/Contact';
 import Education from './ResumeComponents/Education';
 import Skill from './ResumeComponents/Skill';
+import Experience from './ResumeComponents/Experience';
 
-// import ExperienceDetail from './ResumeComponents/ExperienceDetail';
+
 // import Project from './ResumeComponents/Project';
-// import Skill from './ResumeComponents/Skill';
-// 
+
 // import Interest from './ResumeComponents/Interest';
 
 export default {
@@ -95,10 +102,12 @@ export default {
     },
     components: {
         Header,
-        SectionTitle,
+        ShortSectionTitle,
+        LongSectionTitle,
         Contact,
         Education,
-        Skill
+        Skill,
+        Experience
     },
     computed: {
         resumeContent() {
@@ -138,6 +147,12 @@ export default {
     overflow: hidden;
 }
 
+.resume-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
 .left-col {
     min-height: 100%;
     width: 250px;
@@ -145,6 +160,13 @@ export default {
     margin-left: -0.15in;
     padding: 1rem;
     padding-left: 1.5rem;
+    flex-shrink: 0;
+}
+
+.content-col {
+    width: 100%;
+    padding: 1rem;
+    padding-left: 2rem;
 }
 
 .section-wrapper {

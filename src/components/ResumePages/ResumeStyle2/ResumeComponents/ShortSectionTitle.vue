@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'SectionTitle',
+    name: 'ShortSectionTitle',
     props: ['titleName']
 }
 </script>
