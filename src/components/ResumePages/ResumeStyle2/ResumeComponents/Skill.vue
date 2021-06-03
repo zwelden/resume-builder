@@ -20,7 +20,7 @@ export default {
 .resume-skill {
     /* font-family: 'Open Sans', sans-serif; */
     text-align: left;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .skill-name {

@@ -138,6 +138,10 @@ export default {
     padding: 1rem;
 }
 
+.resume-header .resume-col {
+    padding-top: 0;
+}
+
 .resume-detail-section {
     margin-bottom: 2rem;
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="resume-page" v-bind:style="{ transform: transform }">
+    <div class="resume-page resume-style-2" v-bind:style="{ transform: transform }">
 
         <Header :applicant-name="resumeContent.applicantName" 
                 :job-title="resumeContent.jobTitle">
@@ -26,55 +26,18 @@
             </div>
 
             <div class="content-col">
-                <LongSectionTitle title-name="Work Experience"></LongSectionTitle>
-                <Experience v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></Experience>
-            </div>
-            
-        </div>
-        
-
-
-        <!-- <div v-if="resumeContent.contactInfo" class="resume-col col-1">
-            <Contact :data="resumeContent.contactInfo"></Contact>
-        </div> -->
-
-        <!-- <div class="resume-page-section resume-content">
-            <div class="resume-col col-2">
-
-                <div v-if="resumeContent.experience.length > 0" class="resume-detail-section">
-                    <SectionTitle title-name="Related Experience"></SectionTitle>
-                    
-                    <ExperienceDetail v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></ExperienceDetail>
+                <div class="section-wrapper">
+                    <LongSectionTitle title-name="Work Experience"></LongSectionTitle>
+                    <Experience v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></Experience>
                 </div>
-                
-                <div v-if="resumeContent.projects.length > 0" class="resume-detail-section">
-                    <SectionTitle title-name="Projects"></SectionTitle>
 
+                <div v-if="resumeContent.projects.length > 0" class="section-wrapper">
+                    <LongSectionTitle title-name="Projects"></LongSectionTitle>
                     <Project v-for="project in resumeContent.projects" :key="project.order" :data="project"></Project>
                 </div>
-                
-            </div>
-            <div class="resume-col col-1">
-
-                <div v-if="resumeContent.skills.length > 0" class="resume-detail-section">
-                    <SectionTitle title-name="Skills"></SectionTitle>
-                    
-                    <Skill v-for="skill in resumeContent.skills" :key="skill.order" :skill-name="skill.name" :skill-years="skill.years"></Skill>
-                </div>
-
-                <div v-if="resumeContent.education.length > 0" class="resume-detail-section">
-                    <SectionTitle title-name="Education"></SectionTitle>
-
-                    <Education v-for="education in resumeContent.education" :key="education.order" :data="education"></Education>
-                </div>
-
-                <div v-if="resumeContent.interests.length > 0" class="resume-detail-section">
-                    <SectionTitle title-name="Interests"></SectionTitle>
-
-                    <Interest v-for="interest in resumeContent.interests" :key="interest.order" :name="interest.name"></Interest>
-                </div>
-            </div>
-        </div> -->
+            </div>            
+        </div>
+        
 
     </div>
 </template>
@@ -87,11 +50,7 @@ import Contact from './ResumeComponents/Contact';
 import Education from './ResumeComponents/Education';
 import Skill from './ResumeComponents/Skill';
 import Experience from './ResumeComponents/Experience';
-
-
-// import Project from './ResumeComponents/Project';
-
-// import Interest from './ResumeComponents/Interest';
+import Project from './ResumeComponents/Project';
 
 export default {
     name: 'ResumeStyle2',
@@ -107,7 +66,8 @@ export default {
         Contact,
         Education,
         Skill,
-        Experience
+        Experience,
+        Project
     },
     computed: {
         resumeContent() {
@@ -170,30 +130,12 @@ export default {
 }
 
 .section-wrapper {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
-/* .resume-page-section {
-    display: flex;
-    justify-content: between;
-} */
-
-/* .resume-col {
-    flex-shrink: 0;
-    flex-grow: 0;
-    text-align: left;
-} */
-
-
-/* .col-2 {
-    width: 70%;
-    padding: 1rem;
+.content-col .section-wrapper {
+    margin-bottom: 1.5rem;
 }
-
-.col-1 {
-    width: 30%;
-    padding: 1rem;
-} */
 
 .resume-detail-section {
     margin-bottom: 2rem;
@@ -209,5 +151,27 @@ export default {
         margin: 0;
         padding: 0;
     }
+
+    .left-col {
+        margin-left: .35in;
+    }
+
+    .content-col {
+        padding-right: 2.5rem;
+    }
+}
+</style>
+
+<style>
+.resume-style-2 a {
+    color: #3f3d44;
+}
+
+.resume-style-2 a:visited {
+    color: #3f3d44;
+}
+
+.resume-style-2 a:hover {
+    color: #343238;
 }
 </style>

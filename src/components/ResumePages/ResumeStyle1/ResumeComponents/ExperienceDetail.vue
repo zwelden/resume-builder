@@ -7,7 +7,7 @@
             {{ data.jobTitle }}
         </div>
         <div class="experience-subtitle">
-            {{ data.start }} - {{ data.end }}, {{ data.location }}
+            {{ data.start }} - {{ data.end }} | {{ data.location }}
         </div>
         
         <div v-if="data.bullets.length > 0" class="experience-bullets">

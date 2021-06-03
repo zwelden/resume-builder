@@ -208,5 +208,9 @@ input {
     padding-top: 0;
     padding-bottom: 0;
   }
+
+  .resume-container {
+    padding: 0;
+  }
 }
 </style>

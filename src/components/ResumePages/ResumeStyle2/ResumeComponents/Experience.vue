@@ -5,11 +5,11 @@
         </div>
 
         <div class="company-name">
-            
+            {{ data.company }}
         </div>
         
         <div class="experience-subtitle">
-            <span class="company-name">{{ data.company }}</span> | <span class="location">{{ data.location }}</span> | <span class="date-range">{{ data.start }} - {{ data.end }}</span>
+            <span class="location">{{ data.location }}</span> | <span class="date-range">{{ data.start }} - {{ data.end }}</span>
         </div>
         
         <div v-if="data.bullets.length > 0" class="experience-bullets">
@@ -34,24 +34,24 @@ export default {
 <style scoped>
 .resume-experience-detail {
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .position-title {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
     line-height: 1.2;
 }
 
 .company-name {
-    font-size: .9rem;
+    font-size: 1rem;
     line-height: 1.2;
+    font-style: italic;
 }
 
 .experience-subtitle {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .location,

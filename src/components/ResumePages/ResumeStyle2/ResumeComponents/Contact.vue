@@ -3,9 +3,9 @@
         <div v-if="data.location">{{ data.location }}</div>
         <div v-if="data.phone">{{ data.phone }}</div>
         <div v-if="data.email">{{ data.email }}</div>
-        <div v-if="data.website">{{ data.website }}</div>
-        <div v-if="data.linkedin">{{ data.linkedin }}</div>
-        <div v-if="data.github">{{ data.github }}</div>
+        <div v-if="data.website"><a :href="data.website">{{ data.website }}</a></div>
+        <div v-if="data.linkedin"><a :href="data.linkedin">{{ data.linkedin }}</a></div>
+        <div v-if="data.github"><a :href="data.github">{{ data.github }}</a></div>
     </div>
 </template>
 

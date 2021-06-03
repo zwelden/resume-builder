@@ -13,6 +13,11 @@
             <input type="text" v-model="link">
         </div>
 
+        <div>
+            <label for="">Summary</label>
+            <textarea rows="3" v-model="summary"></textarea>
+        </div>
+
         <div class="bullets-wrapper">
             <h5>Bullets</h5>
             <div class="bullet-container" v-for="bullet in bullets" :key="bullet.order">
@@ -51,6 +56,7 @@ export default {
             name: '',
             year: '',
             link: '',
+            summary: '',
             bullets: []
         }
     },
@@ -84,6 +90,7 @@ export default {
                 name: this.name,
                 year: this.year,
                 link: this.link,
+                summary: this.summary,
                 bullets: bullets
             };
 
@@ -109,6 +116,7 @@ export default {
         this.name = project.name;
         this.year = project.year;
         this.link = project.link;
+        this.summary = project.summary;
         this.bullets = project.bullets;
     }
 }

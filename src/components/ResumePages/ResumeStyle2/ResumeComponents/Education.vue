@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .resume-education {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-align: left;
     color: #323232;
 }

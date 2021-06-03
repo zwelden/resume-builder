@@ -1,25 +1,21 @@
 <template>
     <div class="resume-project">
         <div class="project-title">
-            {{ data.name }}
+            {{ data.name.toUpperCase() }}
         </div>
 
         <div class="project-subtitle">
             <span class="project-year">
                 {{ data.year }}
-            </span>
+            </span> 
             <span v-if="data.link" class="project-link">
                 <small>| <a :href="data.link">{{ data.link }}</a></small>
             </span>
         </div>
         
 
-        <div v-if="data.bullets.length > 0" class="project-bullets">
-            <ul>
-                <li v-for="bullet in data.bullets" :key="bullet.order" class="project-bullet">
-                    {{ bullet.text }}
-                </li>
-            </ul>
+        <div v-if="data.summary.length > 0" class="project-summary">
+            {{ data.summary }}
         </div>
     </div>
 </template>
@@ -35,34 +31,30 @@ export default {
 
 <style scoped>
 .resume-project {
-    margin-bottom: 1rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
 }
 
 .project-title  {
+    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 1.2rem;
     line-height: 1.1;
+    font-size: 1rem;
 }
 
 .project-year {
     font-size: .8rem;
     color: #8a8a8a;
     font-weight: 500;
-    line-height: 1.2;
-    margin-top: 1px;
+    line-height: 1;
 }
 
 .project-link {
-    line-height: 1.1;
+    line-height: 1;
     margin-bottom: 2px;
 }
-.project-bullets ul {
-    margin-top: 0;
-    padding-left: 18px;
-}
-
-.project-bullets ul li {
-    font-size: .9rem;   
+.project-summary {
+    font-size: .9rem;
 }
 
 

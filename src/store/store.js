@@ -24,6 +24,7 @@ export const store = new Vuex.Store({
                     start: 'July 2018',
                     end: 'present',
                     location: 'Tulsa, OK',
+                    summary: '',
                     bullets: [
                         {
                             order: 0,
@@ -42,6 +43,7 @@ export const store = new Vuex.Store({
                     start: 'July 2016',
                     end: 'July 2018',
                     location: 'Oklahoma City, OK',
+                    summary: '',
                     bullets: [
                         {
                             order: 0,
@@ -64,6 +66,7 @@ export const store = new Vuex.Store({
                     start: 'July 2014',
                     end: 'July 2016',
                     location: 'St. Louis, MO',
+                    summary: '',
                     bullets: [
                         {
                             order: 0,
@@ -115,6 +118,19 @@ export const store = new Vuex.Store({
                     start: '2011',
                     end: '2014',
                     location: 'Chicago, IL'
+                },
+                {
+                    order: 1,
+                    name: "University of State",
+                    degrees: [
+                        {
+                            order: 0,
+                            name: "MS in Things"
+                        }
+                    ],
+                    start: '2014',
+                    end: '2016',
+                    location: 'Chicago, IL'
                 }
             ],
             interests: [
@@ -141,6 +157,7 @@ export const store = new Vuex.Store({
                     name: 'Vue App',
                     year: '2020',
                     link: 'https://google.com',
+                    summary: 'Donec condimentum tellus vitae pellentesque sollicitudin. Quisque quis semper turpis. Sed elementum auctor nisi, nec tincidunt nisl mattis accumsan.',
                     bullets: [
                         {
                             order: 0,
@@ -157,6 +174,7 @@ export const store = new Vuex.Store({
                     name: 'Elixir App',
                     year: '2019',
                     link: 'https://elixir-lang.org',
+                    summary: 'Morbi eleifend rhoncus erat, a dapibus orci. Sed augue libero, blandit sed congue eu, consectetur vel nisi. ',
                     bullets: [
                         {
                             order: 0,

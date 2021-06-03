@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .resume-header {
-    height: 175px;
+    height: 150px;
     background: #2d2c31;
     position: relative;
     color: #fff;
@@ -47,5 +47,11 @@ export default {
 .resume-job-title {
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+@media print {
+    .resume-header{
+        margin: 0;
+    }
 }
 </style>
