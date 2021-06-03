@@ -95,6 +95,29 @@ export default {
     color: #fff;
 }
 
+@media only screen and (max-width: 900px) {
+    .side-menu {
+        top: 2px;
+        right: auto;
+        left: 50%;
+        width: auto;
+        transform: translateX(-50%);
+
+    }
+
+    .side-nav {
+        display: flex;
+    }
+
+    .nav-item {
+        display: block;
+    }
+
+    .nav-item svg {
+        height: 1.75rem;
+    }
+}
+
 @media print {
     .side-menu {
         display: none;
