@@ -15,32 +15,36 @@
       <EditResumeContentForm />
     </div>
     
+    <div v-if="configActive" class="resume-config-container">
+      <Config />
+    </div>
+
   </div>
 </template>
 
 <script>
-import ResumeStyle1 from './components/ResumePages/ResumeStyle1/ResumeStyle1.vue'
-import ResumeStyle2 from './components/ResumePages/ResumeStyle2/ResumeStyle2.vue'
-import SideMenu from './components/SideMenu/SideMenu'
-import EditResumeContentForm from './components/EditResumeContentForm/EditResumeContentForm'
+import ResumeStyle1 from './components/ResumePages/ResumeStyle1/ResumeStyle1.vue';
+import ResumeStyle2 from './components/ResumePages/ResumeStyle2/ResumeStyle2.vue';
+import SideMenu from './components/SideMenu/SideMenu';
+import Config from './components/Config/Config';
+import EditResumeContentForm from './components/EditResumeContentForm/EditResumeContentForm';
 
 export default {
   name: 'App',
-  
-  data() {
-    return {
-      activeResumeStyle: 1
-    }
-  },
 
   components: {
     ResumeStyle1,
     ResumeStyle2,
     SideMenu,
+    Config,
     EditResumeContentForm
   },
 
   computed: {
+    activeResumeStyle() {
+      return this.$store.state.activeResumeStyle;
+    },
+
     resumeActive() {
       return this.$store.state.activeDisplay.resume;
     },
@@ -78,6 +82,7 @@ body, div, span, p, a, button, ul, li, input, select, textarea {
   max-width: 100%;
 }
 
+.resume-config-container,
 .edit-resume-container,
 .resume-container {
   padding-top: 2rem;

@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
+        activeResumeStyle: 1,
         resumeContent: {
             applicantName: 'Person Name',
             jobTitle: 'Job Title',
@@ -195,6 +196,10 @@ export const store = new Vuex.Store({
         }
     },
     mutations: {
+        setActiveResumeStyle(state, styleInt) {
+            state.activeResumeStyle = styleInt;
+        },
+
         showConfig(state) {
             state.activeDisplay.resume = false;
             state.activeDisplay.edit = false;

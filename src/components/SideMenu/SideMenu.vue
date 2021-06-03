@@ -40,7 +40,7 @@ export default {
         },
 
         showConfig() {
-            this.$store.commmit('showConfig');
+            this.$store.commit('showConfig');
         },
 
         showEdit() {
