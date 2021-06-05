@@ -128,19 +128,6 @@ export default {
     margin-bottom: .5rem;
 }
 
-.resume-section-select {
-    padding: .25rem .5rem;
-    font-size: 1rem;
-    width: 300px;
-    color: #30b4b6;
-    font-weight: 600;
-    letter-spacing: .5px;
-    border-color: #777;
-    border: none;
-    border-bottom: 2px solid #2bc8cb;
-    margin-bottom: 1rem;
-}
-
 
 @media print {
     .edit-resume-content-form {

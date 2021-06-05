@@ -1,5 +1,12 @@
 # resume-builder
 
+## About 
+A web app that generates multiple styles of resumes from the same resume data set.   
+Currently 3 styles of resumes are avaliable.   
+<img src="/src/assets/img/resume-style-1.jpeg" alt="Resume Style 1" width="250px;"></img>
+<img src="/src/assets/img/resume-style-2.jpeg" alt="Resume Style 2" width="250px;"></img>
+<img src="/src/assets/img/resume-style-3.jpeg" alt="Resume Style 3" width="250px;"></img>
+
 ## Project setup
 ```
 npm install
@@ -24,6 +31,3 @@ npm run test
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

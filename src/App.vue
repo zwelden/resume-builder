@@ -71,6 +71,7 @@ html, body {
   background: #f7f7f7;
   padding: 0;
   margin: 0;
+  font-size: 16px;
 }
 
 body, div, span, p, a, button, ul, li, input, select, textarea {
