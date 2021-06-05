@@ -19,6 +19,12 @@
                 Style 2
             </button>
         </div>
+
+        <div>
+            <button class="btn btn-alt" @click="setActiveResumeStyle(3)">
+                Style 3
+            </button>
+        </div>
     </div>
 </template>
 

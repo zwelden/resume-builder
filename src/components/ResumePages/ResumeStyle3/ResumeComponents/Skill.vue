@@ -18,18 +18,17 @@ export default {
 
 <style scoped>
 .resume-skill {
-    margin-bottom: .5rem;
+    text-align: left;
+    margin-bottom: .75rem;
 }
 
 .skill-name {
-    font-weight: 500;
-    color: #505050;
+    font-weight: 400;
     line-height: 1.1;
-    letter-spacing: .5px;
 }
 
 .skill-years {
     font-size: .8rem;
-    color: #505050;
+    color: #676767;
 }
 </style>

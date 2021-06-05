@@ -7,6 +7,10 @@
     <div v-if="resumeActive && activeResumeStyle === 2" class="resume-container">
       <ResumeStyle2 />
     </div>
+
+    <div v-if="resumeActive && activeResumeStyle === 3" class="resume-container">
+      <ResumeStyle3 />
+    </div>
     
     
     <SideMenu />
@@ -25,6 +29,7 @@
 <script>
 import ResumeStyle1 from './components/ResumePages/ResumeStyle1/ResumeStyle1.vue';
 import ResumeStyle2 from './components/ResumePages/ResumeStyle2/ResumeStyle2.vue';
+import ResumeStyle3 from './components/ResumePages/ResumeStyle3/ResumeStyle3.vue';
 import SideMenu from './components/SideMenu/SideMenu';
 import Config from './components/Config/Config';
 import EditResumeContentForm from './components/EditResumeContentForm/EditResumeContentForm';
@@ -35,6 +40,7 @@ export default {
   components: {
     ResumeStyle1,
     ResumeStyle2,
+    ResumeStyle3,
     SideMenu,
     Config,
     EditResumeContentForm

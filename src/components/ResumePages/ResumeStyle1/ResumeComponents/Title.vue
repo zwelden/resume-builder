@@ -29,7 +29,7 @@ export default {
 }
 
 .resume-position-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 1;
 }
 </style>

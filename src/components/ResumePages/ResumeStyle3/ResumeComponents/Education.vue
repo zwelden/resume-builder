@@ -11,7 +11,7 @@
 
         <div class="education-location-duration">
             <div>{{ data.start }} - {{ data.end }}</div>
-            <div>{{ data.location }}</div>
+            <!-- <div>{{ data.location }}</div> -->
         </div>
         
     </div>
@@ -28,7 +28,8 @@ export default {
 
 <style scoped>
 .resume-education {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
 }
 
 .education-title  {
@@ -38,17 +39,16 @@ export default {
 }
 
 .education-courses {
-    margin-bottom: 4px;
+    font-size: .9rem;
+    margin-bottom: 2px;
 }
 
 .education-course {
-    font-size: .9rem;
-    font-weight: 500;
     line-height: 1.1;
 }
 
 .education-location-duration {
-    font-size: .9rem;
-    color: #8a8a8a;
+    font-size: .85rem;
+    color: #686868;
 }
 </style>

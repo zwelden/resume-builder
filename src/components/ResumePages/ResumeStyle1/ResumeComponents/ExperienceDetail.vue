@@ -35,14 +35,13 @@ export default {
 }
 
 .company-name {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.2;
 }
 
 .position-title {
-    font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1.2;
 }
@@ -53,15 +52,19 @@ export default {
     font-weight: 500;
     line-height: 1.2;
     margin-top: 1px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .experience-bullets ul {
     margin-top: 0;
-    padding-left: 18px;
+    padding-left: 24px;
 }
 
 .experience-bullets ul li {
     font-size: .9rem;   
+}
+
+.experience-bullets ul li::marker {
+    color: #686868;
 }
 </style>

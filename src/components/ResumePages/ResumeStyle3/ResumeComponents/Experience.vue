@@ -1,15 +1,13 @@
 <template>
     <div class="resume-experience-detail">
         <div class="position-title">
-            {{ data.jobTitle.toUpperCase() }}
+            <div class="job-title">{{ data.jobTitle }}</div>
+            <div class="location"><small>{{ data.location }}</small></div>
         </div>
 
-        <div class="company-name">
-            {{ data.company }}
-        </div>
-        
-        <div class="experience-subtitle">
-            <span class="location">{{ data.location }}</span> | <span class="date-range">{{ data.start }} - {{ data.end }}</span>
+        <div class="company-detail">
+            <div class="company-name">{{ data.company }}</div>
+            <div class="date-range">{{ data.start }} - {{ data.end }}</div>
         </div>
         
         <div v-if="data.bullets.length > 0" class="experience-bullets">
@@ -38,25 +36,34 @@ export default {
 }
 
 .position-title {
-    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.2;
+    display: flex;
+    justify-content: space-between;
 }
 
-.company-name {
+
+.location {
+    font-weight: 400;
+    color: #686868;
+}
+.company-detail {
     font-size: .9rem;
     line-height: 1.2;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .35rem;
 }
 
 .experience-subtitle {
     margin-bottom: 0.25rem;
 }
 
-.location,
+
 .date-range {
     font-size: .9rem;
-    color: #8a8a8a;
+    color: #686868;
     font-weight: 500;
     line-height: 1.2;
     margin-top: 1px;

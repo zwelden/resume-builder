@@ -1,5 +1,5 @@
 <template>
-    <div class="resume-page resume-style-2" v-bind:style="{ transform: transform }">
+    <div class="resume-page resume-style-3" v-bind:style="{ transform: transform }">
 
         <Header :applicant-name="resumeContent.applicantName" 
                 :job-title="resumeContent.jobTitle">
@@ -10,29 +10,29 @@
 
             <div class="left-col">
                 <div class="section-wrapper">
-                    <ShortSectionTitle title-name="Contact"></ShortSectionTitle>
+                    <SectionTitle title-name="Contact"></SectionTitle>
                     <Contact :data="resumeContent.contactInfo"></Contact>
                 </div>
                 
                 <div class="section-wrapper">
-                    <ShortSectionTitle title-name="Education"></ShortSectionTitle>
+                    <SectionTitle title-name="Education"></SectionTitle>
                     <Education v-for="education in resumeContent.education" :key="education.order" :data="education"></Education>
                 </div>
 
                 <div class="section-wrapper">
-                    <ShortSectionTitle title-name="Skills"></ShortSectionTitle>
+                    <SectionTitle title-name="Skills"></SectionTitle>
                     <Skill v-for="skill in resumeContent.skills" :key="skill.order" :skill-name="skill.name" :skill-years="skill.years"></Skill>
                 </div>
             </div>
 
             <div class="content-col">
                 <div class="section-wrapper">
-                    <LongSectionTitle title-name="Experience"></LongSectionTitle>
+                    <SectionTitle title-name="Experience"></SectionTitle>
                     <Experience v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></Experience>
                 </div>
 
                 <div v-if="resumeContent.projects.length > 0" class="section-wrapper">
-                    <LongSectionTitle title-name="Projects"></LongSectionTitle>
+                    <SectionTitle title-name="Projects"></SectionTitle>
                     <Project v-for="project in resumeContent.projects" :key="project.order" :data="project"></Project>
                 </div>
             </div>            
@@ -44,8 +44,7 @@
 
 <script>
 import Header from './ResumeComponents/Header';
-import ShortSectionTitle from './ResumeComponents/ShortSectionTitle';
-import LongSectionTitle from './ResumeComponents/LongSectionTitle';
+import SectionTitle from './ResumeComponents/SectionTitle';
 import Contact from './ResumeComponents/Contact';
 import Education from './ResumeComponents/Education';
 import Skill from './ResumeComponents/Skill';
@@ -61,8 +60,7 @@ export default {
     },
     components: {
         Header,
-        ShortSectionTitle,
-        LongSectionTitle,
+        SectionTitle,
         Contact,
         Education,
         Skill,
@@ -100,27 +98,26 @@ export default {
     height: 11in;
     padding: .5in;
     box-shadow: 0 5px 10px -2px #9e9e9e;
-    /* position: relative; */
-    /* left: 50%; */
     margin: auto;
     transform-origin: top left;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .resume-content-wrapper {
     display: flex;
     justify-content: space-between;
-    min-height: 100%;
+    overflow: hidden;
+    flex-grow: 1;
 }
 
 .left-col {
-    min-height: 100%;
-    width: 250px;
-    background: #f5f5f5;
-    margin-left: -0.15in;
-    padding: 1rem;
-    padding-left: 1.5rem;
+    width: 225px;
+    padding-right: 1rem;
+    padding-top: 1rem;
     flex-shrink: 0;
+    border-right: 2px solid #d8d8d8;
 }
 
 .content-col {
@@ -133,9 +130,6 @@ export default {
     margin-bottom: 2.5rem;
 }
 
-.content-col .section-wrapper {
-    margin-bottom: 1.5rem;
-}
 
 .resume-detail-section {
     margin-bottom: 2rem;
@@ -151,18 +145,17 @@ export default {
         margin: 0;
         padding: 0;
     }
-
-    .left-col {
-        margin-left: .35in;
-    }
-
-    .content-col {
-        padding-right: 2.5rem;
-    }
 }
 </style>
 
 <style>
+.resume-style-3 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    color: #323232;
+}
+
+
 .resume-style-2 a {
     color: #3f3d44;
 }

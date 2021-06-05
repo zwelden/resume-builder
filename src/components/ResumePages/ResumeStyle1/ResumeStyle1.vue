@@ -15,7 +15,7 @@
             <div class="resume-col col-2">
 
                 <div v-if="resumeContent.experience.length > 0" class="resume-detail-section">
-                    <SectionTitle title-name="Related Experience"></SectionTitle>
+                    <SectionTitle title-name="Experience"></SectionTitle>
                     
                     <ExperienceDetail v-for="experience in resumeContent.experience" :key="experience.order" :data="experience"></ExperienceDetail>
                 </div>
@@ -143,7 +143,7 @@ export default {
 }
 
 .resume-detail-section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 @media print {
