@@ -155,6 +155,7 @@ export default {
         transform: none;
         margin: 0;
         padding: 0;
+        transform: scale(1) !important;
     }
 }
 </style>

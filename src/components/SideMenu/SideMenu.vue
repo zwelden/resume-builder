@@ -36,7 +36,10 @@ export default {
     },
     methods: {
         printResume() {
-            window.print();
+            this.$store.commit('showResume');
+            setTimeout(function () {
+                 window.print();
+            }, 100);
         },
 
         showConfig() {
